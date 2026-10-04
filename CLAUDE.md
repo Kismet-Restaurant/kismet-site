@@ -7,7 +7,7 @@ This is the website for Kismet, a seasonal fine-dining restaurant at 909 Main St
 - Next.js (App Router) with TypeScript. Every page is static; the only server code is `src/app/api/subscribe` and `src/app/api/inquiry`, which pass form entries to HubSpot.
 - Vercel deploys `main` to production. Other branches get preview links.
 - Content lives in `content/*.json`. The team edits the same files through Pages CMS, set up in `.pages.yml`. When you add, rename or remove a field in a content file, update `.pages.yml` and the types in `src/lib/content.ts` to match.
-- Hours are never typed into pages. `content/hours.json` drives the hours table, the header summary, the live "Open now" line, the quick booking dates, the booking rules line and the structured data for Google. `closedDates` holds one-off closures.
+- Hours are never typed into pages. `content/hours.json` drives the hours table, the header summary, the footer, the live "Open now" line on the home page and /links, the home page headline, the quick booking dates, the booking rules line, the private dining party sizes and the structured data for Google. `closedDates` holds one-off closures.
 - The logo lives in `src/components/Logo.tsx`: the primary logo and the brandmark, drawn from the designer's official files. Use those components, never retype "Kismet" in a font, and don't use the designer's Primary Logo V2. The logo is Kismet orange on light backgrounds and white on Espresso.
 - Reserve buttons are links to Resy marked `data-resy`; `src/components/Resy.tsx` attaches Resy's booking window to them. Leave the venue ID and API key in `content/site.json` alone.
 

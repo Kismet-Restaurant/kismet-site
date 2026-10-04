@@ -206,7 +206,7 @@ export function service(now: LocalNow, week: Week, closedDates: string[] = []): 
     return {
       state,
       live: true,
-      status: `Opens tonight at ${clock(today.firstTable)} · last seating ${clockFull(today.lastTable)}`,
+      status: `Opens tonight at ${clockFull(today.firstTable)} · last seating ${clockFull(today.lastTable)}`,
       headline: `Tonight, the lamps come on at ${spoken(today.firstTable)}.`,
     }
   }
@@ -246,7 +246,7 @@ export function service(now: LocalNow, week: Week, closedDates: string[] = []): 
   return {
     state,
     live: false,
-    status: `${lead} · open ${whenShort} from ${clock(next.firstTable)}`,
+    status: `${lead} · open ${whenShort} from ${clockFull(next.firstTable)}`,
     headline: after
       ? `Seating is done for tonight. See you ${whenLong} at ${spoken(next.firstTable)}.`
       : `The lamps come on again ${whenLong} at ${spoken(next.firstTable)}.`,
