@@ -386,7 +386,7 @@ content:
       - name: week
         label: Weekly hours
         type: object
-        description: The live "Open now" line, the booking buttons and the hours everywhere on the site come from here.
+        description: The live "Open now" line, the booking buttons and the hours everywhere on the site come from here. If Open is ticked, fill in both times, or the day shows as closed.
         fields:
           - name: monday
             label: Monday
