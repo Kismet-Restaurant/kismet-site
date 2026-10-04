@@ -1,0 +1,572 @@
+{
+  "wineListPdf": "/pdf/kismet-wine-list-october-2026.pdf",
+  "barIntro": "Four house cocktails, twelve wines by the glass and more than sixty bottles. The list leans on Oregon Pinot Noir and Napa Cabernet, including St. Supéry Élu from 2016 to 2019.",
+  "bottleIntro": "Strongest in Oregon Pinot Noir and Napa Cabernet, including St. Supéry Élu from 2016 to 2019.",
+  "corkage": "Bringing a special bottle? It’s welcome for a modest corkage fee.",
+  "cocktails": [
+    {
+      "name": "The Kismet",
+      "description": "Gin, rhubarb and ginger liqueur, orange. Served up.",
+      "price": "15"
+    },
+    {
+      "name": "Main Street Old Fashioned",
+      "description": "Maker’s Mark bourbon, orange bitters, orange zest, cherry",
+      "price": "15"
+    },
+    {
+      "name": "Negroni",
+      "description": "Gin, Antica vermouth, Campari. Served up.",
+      "price": "15"
+    },
+    {
+      "name": "Not Quite the Last Word",
+      "description": "Drumshanbo laurel and fig gin, Chartreuse, lime",
+      "price": "20"
+    }
+  ],
+  "byTheGlassNote": "5 oz pours",
+  "byTheGlass": [
+    {
+      "type": "Sparkling",
+      "wines": [
+        {
+          "name": "Chandon Brut, Napa Valley NV",
+          "price": "25"
+        }
+      ]
+    },
+    {
+      "type": "Sauvignon Blanc",
+      "wines": [
+        {
+          "name": "J. Lohr Flume Crossing, Monterey 2024",
+          "price": "11"
+        },
+        {
+          "name": "Rutherford Ranch, Napa Valley 2022",
+          "price": "15"
+        },
+        {
+          "name": "Dovetail, Columbia Valley 2024",
+          "price": "28"
+        }
+      ]
+    },
+    {
+      "type": "Pinot Gris",
+      "wines": [
+        {
+          "name": "Christopher Michael, Oregon 2023",
+          "price": "10"
+        }
+      ]
+    },
+    {
+      "type": "Chardonnay",
+      "wines": [
+        {
+          "name": "Decoy, Duckhorn Portfolio 2024",
+          "price": "11"
+        },
+        {
+          "name": "Matanzas Creek, Alexander Valley 2023",
+          "price": "32"
+        }
+      ]
+    },
+    {
+      "type": "Rosé",
+      "wines": [
+        {
+          "name": "Domaine Serene “R” NV",
+          "price": "24"
+        }
+      ]
+    },
+    {
+      "type": "Pinot Noir",
+      "wines": [
+        {
+          "name": "Roco Gravel Road 2022",
+          "price": "18"
+        },
+        {
+          "name": "Argyle, Willamette Valley 2023",
+          "price": "20"
+        }
+      ]
+    },
+    {
+      "type": "Merlot",
+      "wines": [
+        {
+          "name": "Duckhorn, Napa Valley 2022",
+          "price": "22"
+        }
+      ]
+    },
+    {
+      "type": "Cabernet Sauvignon",
+      "wines": [
+        {
+          "name": "Browne Forest Project, Columbia Valley 2021",
+          "price": "25"
+        }
+      ]
+    }
+  ],
+  "beerNote": "12 oz · 7 each",
+  "beer": [
+    {
+      "name": "Loowit Shadow Shinobi IPA"
+    },
+    {
+      "name": "Occidental IPA"
+    },
+    {
+      "name": "Incline Imperial Honeycrisp Haze cider"
+    },
+    {
+      "name": "Widmer Brothers Hefeweizen"
+    },
+    {
+      "name": "pFriem Hazy IPA"
+    },
+    {
+      "name": "Buoy Czech-style Pilsner"
+    },
+    {
+      "name": "Loowit Grimlock Porter"
+    },
+    {
+      "name": "Von Ebert Sector 7 Hazy IPA"
+    },
+    {
+      "name": "Barrel Mountain Luv Ya Lager"
+    }
+  ],
+  "bottles": [
+    {
+      "type": "Sparkling",
+      "wines": [
+        {
+          "name": "Argyle, Oregon NV",
+          "price": "55"
+        },
+        {
+          "name": "Chandon Brut, Napa Valley NV",
+          "price": "59"
+        },
+        {
+          "name": "Chandon Blanc de Pinot Noir, Napa Valley NV",
+          "price": "63"
+        },
+        {
+          "name": "Veuve Clicquot NV",
+          "price": "136"
+        },
+        {
+          "name": "Veuve Clicquot Rosé NV",
+          "price": "173"
+        }
+      ]
+    },
+    {
+      "type": "Sauvignon Blanc",
+      "wines": [
+        {
+          "name": "J. Lohr Flume Crossing, Monterey 2024",
+          "price": "25"
+        },
+        {
+          "name": "Robert Hall, Paso Robles 2023",
+          "price": "25"
+        },
+        {
+          "name": "Decoy, Duckhorn Portfolio 2024",
+          "price": "25"
+        },
+        {
+          "name": "Clay Shannon Betsy, Lake County 2024",
+          "price": "28"
+        },
+        {
+          "name": "Rutherford Ranch, Napa Valley 2022",
+          "price": "33"
+        },
+        {
+          "name": "Matanzas Creek, Sonoma County 2024",
+          "price": "36"
+        },
+        {
+          "name": "Chateau Ste. Michelle Horse Heaven Vineyard 2023",
+          "price": "39"
+        },
+        {
+          "name": "Pendulum, Columbia Valley 2022",
+          "price": "45"
+        },
+        {
+          "name": "Groth, Napa Valley 2024",
+          "price": "60"
+        },
+        {
+          "name": "Stags’ Leap Aveta, Napa Valley 2023",
+          "price": "69"
+        },
+        {
+          "name": "Dovetail Cellars, Columbia Valley 2024",
+          "price": "75"
+        },
+        {
+          "name": "Robert Mondavi, Napa Valley 2023",
+          "price": "75"
+        }
+      ]
+    },
+    {
+      "type": "Pinot Gris",
+      "wines": [
+        {
+          "name": "Christopher Michael, Oregon 2023",
+          "price": "22"
+        },
+        {
+          "name": "Browne Bitner Estate, Columbia Valley 2022",
+          "price": "44"
+        },
+        {
+          "name": "Antiquum Farms Aurosa, Willamette Valley 2023",
+          "price": "69"
+        }
+      ]
+    },
+    {
+      "type": "Rosé",
+      "wines": [
+        {
+          "name": "Domaine Serene “R” NV",
+          "price": "60"
+        }
+      ]
+    },
+    {
+      "type": "Chardonnay",
+      "wines": [
+        {
+          "name": "Smoking Loon Steelbird Unoaked 2024",
+          "price": "24"
+        },
+        {
+          "name": "Decoy, Duckhorn Portfolio 2024",
+          "price": "25"
+        },
+        {
+          "name": "Gnarly Head 1924 Double Gold 2023",
+          "price": "25"
+        },
+        {
+          "name": "Sequoia Grove, Napa Valley 2022",
+          "price": "50"
+        },
+        {
+          "name": "Sonoma-Cutrer Les Pierres, Sonoma Coast 2023",
+          "price": "55"
+        },
+        {
+          "name": "Cakebread Cellars, Napa Valley 2023",
+          "price": "72"
+        },
+        {
+          "name": "Matanzas Creek, Alexander Valley 2023",
+          "price": "75"
+        },
+        {
+          "name": "Domaine Serene Evenstad Reserve, Dundee Hills 2022",
+          "price": "135"
+        },
+        {
+          "name": "Kistler Les Noisetiers, Russian River Valley 2023",
+          "price": "142"
+        },
+        {
+          "name": "Far Niente, Napa Valley 2023",
+          "price": "152"
+        },
+        {
+          "name": "Sea Smoke, Santa Rita Hills 2022",
+          "price": "165"
+        }
+      ]
+    },
+    {
+      "type": "Pinot Noir",
+      "wines": [
+        {
+          "name": "Roco Gravel Road 2022",
+          "price": "40"
+        },
+        {
+          "name": "Argyle, Willamette Valley 2024",
+          "price": "42"
+        },
+        {
+          "name": "Willamette Valley Vineyards Whole Cluster 2023",
+          "price": "42"
+        },
+        {
+          "name": "King Estate Artisan Series, Willamette Valley 2023",
+          "price": "45"
+        },
+        {
+          "name": "Chapter 24 The Fire, Willamette Valley 2013",
+          "price": "66"
+        },
+        {
+          "name": "Twomey, Russian River 2022",
+          "price": "95"
+        },
+        {
+          "name": "Walt Bob’s Ranch, Sonoma 2017",
+          "price": "96"
+        },
+        {
+          "name": "Willamette Valley Vineyards Elton Estate 2020",
+          "price": "99"
+        },
+        {
+          "name": "Domaine Serene Yamhill Cuvée, Willamette Valley 2022",
+          "price": "120"
+        },
+        {
+          "name": "Resonance Founder’s Blocks Estate 2021",
+          "price": "128"
+        },
+        {
+          "name": "Hamilton Russell Zena Crown, Eola-Amity Hills 2019",
+          "price": "137"
+        },
+        {
+          "name": "Goldeneye Gowan Creek, Anderson Valley 2021",
+          "price": "149"
+        },
+        {
+          "name": "Kosta Browne, Russian River Valley 2021",
+          "price": "154"
+        },
+        {
+          "name": "Domaine Serene Evenstad Reserve, Willamette Valley 2021",
+          "price": "200"
+        },
+        {
+          "name": "Goldeneye Ten Degrees, Anderson Valley 2021",
+          "price": "225"
+        }
+      ]
+    },
+    {
+      "type": "Cabernet Sauvignon",
+      "wines": [
+        {
+          "name": "Browne Forest Project, Columbia Valley 2021",
+          "price": "58"
+        },
+        {
+          "name": "St. Supéry Élu 2019",
+          "price": "83"
+        },
+        {
+          "name": "St. Supéry Élu 2017",
+          "price": "88"
+        },
+        {
+          "name": "St. Supéry Élu 2016",
+          "price": "99"
+        },
+        {
+          "name": "St. Supéry Élu 2018",
+          "price": "99"
+        },
+        {
+          "name": "St. Supéry Dollarhide Elevation 2013",
+          "price": "99"
+        },
+        {
+          "name": "St. Supéry Dollarhide Elevation 2018",
+          "price": "99"
+        },
+        {
+          "name": "St. Supéry Dollarhide Elevation 2019",
+          "price": "99"
+        },
+        {
+          "name": "Merryvale, Napa Valley 2017",
+          "price": "121"
+        },
+        {
+          "name": "Silver Oak, Alexander Valley 2021",
+          "price": "137"
+        },
+        {
+          "name": "Sequoia Grove, Napa Valley 2022",
+          "price": "137"
+        },
+        {
+          "name": "ZD, Napa Valley 2021",
+          "price": "174"
+        }
+      ]
+    },
+    {
+      "type": "Merlot",
+      "wines": [
+        {
+          "name": "Duckhorn, Napa Valley 2022",
+          "price": "50"
+        },
+        {
+          "name": "St. Supéry, Rutherford 2019",
+          "price": "108"
+        }
+      ]
+    },
+    {
+      "type": "Other reds",
+      "wines": [
+        {
+          "name": "St. Francis Old Vines Zinfandel, Sonoma 2022",
+          "price": "35"
+        },
+        {
+          "name": "Cline Ancient Vines Zinfandel, Contra Costa County 2022",
+          "price": "43"
+        },
+        {
+          "name": "Browne Bitner Estate Tribute Red Blend 2022",
+          "price": "75"
+        }
+      ]
+    }
+  ],
+  "dessertWines": [
+    {
+      "name": "Wagner Riesling Ice Wine",
+      "size": "375 ml",
+      "price": "79"
+    },
+    {
+      "name": "Kiona Ice Wine",
+      "size": "375 ml",
+      "price": "94"
+    },
+    {
+      "name": "Dolce Late Harvest, Napa 2021",
+      "size": "375 ml",
+      "price": "182"
+    },
+    {
+      "name": "Royal Tokaji 2017",
+      "size": "500 ml",
+      "price": "121"
+    },
+    {
+      "name": "Dr. Heidemann’s Beerenauslese",
+      "size": "375 ml",
+      "price": "55"
+    },
+    {
+      "name": "Kracher Trockenbeerenauslese NV",
+      "size": "187 ml",
+      "price": "75"
+    },
+    {
+      "name": "Kracher Auslese Cuvée 2023",
+      "size": "375 ml",
+      "price": "58"
+    },
+    {
+      "name": "Fattoria del Cerro Vin Santo di Montepulciano 2019",
+      "size": "",
+      "price": "72"
+    }
+  ],
+  "fortifiedNote": "3 oz",
+  "fortified": [
+    {
+      "name": "Fonseca Ruby Port NV",
+      "price": "13"
+    },
+    {
+      "name": "Quinta das Carvalhas 2016",
+      "price": "60"
+    },
+    {
+      "name": "Quinta das Carvalhas 20-year Tawny",
+      "price": "35"
+    },
+    {
+      "name": "Taylor Fladgate Vargellas Vintage 2019",
+      "price": "26"
+    },
+    {
+      "name": "Mil Pasetas Amontillado",
+      "price": "17"
+    },
+    {
+      "name": "Mil Pasetas Oloroso",
+      "price": "17"
+    },
+    {
+      "name": "Mil Pasetas Pedro Ximénez",
+      "price": "18"
+    },
+    {
+      "name": "Miles 15-year Medium Rich Madeira",
+      "price": "15"
+    },
+    {
+      "name": "Miles Rainwater Madeira",
+      "price": "10"
+    },
+    {
+      "name": "Fonseca Siroco White Port",
+      "price": "15"
+    }
+  ],
+  "brandiesNote": "3 oz",
+  "brandies": [
+    {
+      "name": "Haute de Vin VS Cognac",
+      "price": "17"
+    },
+    {
+      "name": "Martell Blue Swift",
+      "price": "17"
+    },
+    {
+      "name": "Château Laubade Bas-Armagnac",
+      "price": "21"
+    },
+    {
+      "name": "G.E. Massenez Poire Williams Prisonnière",
+      "price": "33"
+    },
+    {
+      "name": "Courvoisier VS",
+      "price": "16"
+    },
+    {
+      "name": "Rémy Martin VSOP",
+      "price": "21"
+    },
+    {
+      "name": "Knight Gabriello Grappa di Chianti",
+      "price": "12"
+    },
+    {
+      "name": "Bellini Grappa del Chianti",
+      "price": "10"
+    }
+  ]
+}

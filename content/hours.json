@@ -1,0 +1,50 @@
+{
+  "notice": {
+    "show": false,
+    "text": ""
+  },
+  "week": {
+    "monday": {
+      "open": false,
+      "firstTable": "",
+      "lastTable": ""
+    },
+    "tuesday": {
+      "open": true,
+      "firstTable": "17:00",
+      "lastTable": "20:00"
+    },
+    "wednesday": {
+      "open": true,
+      "firstTable": "17:00",
+      "lastTable": "20:00"
+    },
+    "thursday": {
+      "open": true,
+      "firstTable": "17:00",
+      "lastTable": "20:00"
+    },
+    "friday": {
+      "open": true,
+      "firstTable": "17:00",
+      "lastTable": "20:30"
+    },
+    "saturday": {
+      "open": true,
+      "firstTable": "17:00",
+      "lastTable": "20:30"
+    },
+    "sunday": {
+      "open": false,
+      "firstTable": "",
+      "lastTable": ""
+    }
+  },
+  "closingNote": "We stay open after the last seating, usually until 9:30 or 10, or as long as guests linger.",
+  "closedDates": [],
+  "booking": {
+    "windowDays": 60,
+    "depositFromPartySize": 5,
+    "callFromPartySize": 8
+  }
+}

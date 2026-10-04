@@ -1,0 +1,16 @@
+# dependencies
+/node_modules
+
+# Next.js build output
+/.next/
+/out/
+
+# environment files (HubSpot keys and the like live in Vercel, not in the repo)
+.env*
+!.env.example
+
+# misc
+.DS_Store
+*.tsbuildinfo
+next-env.d.ts
+.vercel

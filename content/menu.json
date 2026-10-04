@@ -1,0 +1,122 @@
+{
+  "updated": "2026-09-30",
+  "price": 85,
+  "priceNote": "per guest · beverages extra",
+  "intro": "Three courses for $85 per guest, beverages extra. Choose one dish from each course; the menu changes with the season.",
+  "dayOfNote": "Small changes sometimes happen on the day. If a particular dish matters to you, call us on the day of your reservation.",
+  "menuPdf": "/pdf/kismet-menu-october-2026.pdf",
+  "first": [
+    {
+      "name": "Oysters on the half shell",
+      "description": "A half dozen on ice, mignonette"
+    },
+    {
+      "name": "Heirloom tomato salad",
+      "description": "Caveman blue cheese, shaved shallots, saba, olive oil"
+    },
+    {
+      "name": "Dungeness crab cake",
+      "description": "Sauce gribiche"
+    },
+    {
+      "name": "Chilled heirloom tomato gazpacho",
+      "description": "Olive oil, garlic, cucumber, breadcrumbs"
+    },
+    {
+      "name": "Classic steak tartare",
+      "description": "Minced beef tenderloin, shallots, capers, boiled egg, Worcestershire, raw egg yolk"
+    },
+    {
+      "name": "Kampachi carpaccio",
+      "description": "Soy, yuzu ponzu, micro greens, pear salad"
+    },
+    {
+      "name": "Fresh fettuccine pesto",
+      "description": "Sweet basil, garlic, pine nuts, Reggiano"
+    }
+  ],
+  "second": [
+    {
+      "name": "Tenderloin of beef",
+      "description": "Foie gras demi-glace, spinach, potato purée"
+    },
+    {
+      "name": "Rainbow brook trout",
+      "description": "Brown butter, lemon, parsley, broccoli rabe"
+    },
+    {
+      "name": "Seared tenderloin of veal",
+      "description": "Mustard green and leek fondue, roasted chanterelle cream"
+    },
+    {
+      "name": "Smoked and roasted pork loin",
+      "description": "Fig and red wine agrodolce, arugula, sweet corn cakes"
+    },
+    {
+      "name": "Day boat scallops",
+      "description": "Sweet corn maque choux, roasted red pepper purée, crispy shallots"
+    },
+    {
+      "name": "Grilled rack of lamb",
+      "description": "Rosemary, garlic, grilled summer vegetable brochette, lemon vinaigrette"
+    }
+  ],
+  "dessert": [
+    {
+      "name": "Cheese plate",
+      "description": "Curated cheeses, crisps, fruit"
+    },
+    {
+      "name": "Peach cobbler",
+      "description": "Batter style, baked in cast iron"
+    },
+    {
+      "name": "Gelato and cookies",
+      "description": "Ask about tonight’s flavors"
+    },
+    {
+      "name": "Crème brûlée",
+      "description": "Madagascar vanilla bean"
+    },
+    {
+      "name": "Washington “Happi” pear galette",
+      "description": "Frangipane, port pear reduction"
+    },
+    {
+      "name": "Chocolate hazelnut cake",
+      "description": "Orange zest, crème anglaise"
+    }
+  ],
+  "photos": {
+    "first": {
+      "image": "/photos/crab-cake-sm.jpg",
+      "alt": "A golden Dungeness crab cake with herb salad and sauce gribiche",
+      "caption": "Pictured: Dungeness crab cake, sauce gribiche"
+    },
+    "second": {
+      "image": "/photos/tenderloin-sm.jpg",
+      "alt": "Demi-glace poured over beef tenderloin on potato purée",
+      "caption": "Pictured: tenderloin of beef, foie gras demi-glace"
+    },
+    "dessert": {
+      "image": "/photos/galette-sm.jpg",
+      "alt": "A berry galette dusted with sugar, finished with cream and mint",
+      "caption": "Pictured: the galette in August, with cherries and blackberries. Right now it’s Washington pear."
+    }
+  },
+  "notes": [
+    {
+      "title": "Allergies and dietary needs",
+      "text": "Tell us when you book, and please call ahead about serious allergies. Our dishes are built on seasonal ingredients, so some changes are possible and some aren’t; we can’t create separate dishes or custom menus."
+    },
+    {
+      "title": "An extra course",
+      "text": "Every guest and every evening is a little different. Ask about adding a course or a different combination of dishes."
+    },
+    {
+      "title": "Please note",
+      "text": "Consuming raw or undercooked meats, poultry, seafood, shellfish or eggs might increase your risk of foodborne illness. Please ask your server if you have any concerns."
+    }
+  ],
+  "galetteNote": "The galette follows the fruit: cherries and blackberries in August, Washington pears now."
+}

@@ -1,0 +1,602 @@
+# Pages CMS setup for the Kismet website (https://app.pagescms.org).
+# Each entry below is one screen in the editor. Saving a change commits it to GitHub,
+# and Vercel puts the updated site live in about a minute.
+
+settings:
+  content:
+    # Keep anything in a file that the editor doesn't show (for example the Resy venue settings).
+    merge: true
+  commit:
+    # Save changes under the Pages CMS app's name, so nobody's email address shows in the
+    # site's history and Vercel always recognizes who made the change.
+    identity: app
+
+media:
+  - name: photos
+    label: Photos
+    input: public/photos
+    output: /photos
+    extensions: [jpg, jpeg, png, webp]
+    rename: safe
+  - name: pdfs
+    label: Menu and wine list PDFs
+    input: public/pdf
+    output: /pdf
+    extensions: [pdf]
+    rename: safe
+
+components:
+  dish:
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: "{name}"
+    fields:
+      - name: name
+        label: Dish
+        type: string
+        required: true
+      - name: description
+        label: Description
+        type: string
+        description: Short and plain, like "Sauce gribiche".
+
+  priced:
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: "{name} ({price})"
+    fields:
+      - name: name
+        label: Name
+        type: string
+        required: true
+      - name: price
+        label: Price
+        type: string
+        description: Dollars, number only, like 15.
+
+  wineGroup:
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: "{type}"
+    fields:
+      - name: type
+        label: Heading
+        type: string
+        required: true
+        description: Like Sparkling, Pinot Noir or Other reds.
+      - name: wines
+        label: Wines
+        type: object
+        list: true
+        fields:
+          - name: name
+            label: Wine
+            type: string
+            required: true
+            description: Producer, place and vintage, like "Argyle, Willamette Valley 2023".
+          - name: price
+            label: Price
+            type: string
+            description: Dollars, number only.
+
+  photo:
+    type: object
+    fields:
+      - name: image
+        label: Photo
+        type: image
+        options:
+          media: photos
+      - name: alt
+        label: Photo description
+        type: string
+        description: What the photo shows, for guests who use screen readers. One plain sentence.
+      - name: caption
+        label: Caption
+        type: string
+
+  time:
+    type: select
+    options:
+      placeholder: Choose a time
+      values:
+          - name: "15:00"
+            label: "3:00 pm"
+          - name: "15:15"
+            label: "3:15 pm"
+          - name: "15:30"
+            label: "3:30 pm"
+          - name: "15:45"
+            label: "3:45 pm"
+          - name: "16:00"
+            label: "4:00 pm"
+          - name: "16:15"
+            label: "4:15 pm"
+          - name: "16:30"
+            label: "4:30 pm"
+          - name: "16:45"
+            label: "4:45 pm"
+          - name: "17:00"
+            label: "5:00 pm"
+          - name: "17:15"
+            label: "5:15 pm"
+          - name: "17:30"
+            label: "5:30 pm"
+          - name: "17:45"
+            label: "5:45 pm"
+          - name: "18:00"
+            label: "6:00 pm"
+          - name: "18:15"
+            label: "6:15 pm"
+          - name: "18:30"
+            label: "6:30 pm"
+          - name: "18:45"
+            label: "6:45 pm"
+          - name: "19:00"
+            label: "7:00 pm"
+          - name: "19:15"
+            label: "7:15 pm"
+          - name: "19:30"
+            label: "7:30 pm"
+          - name: "19:45"
+            label: "7:45 pm"
+          - name: "20:00"
+            label: "8:00 pm"
+          - name: "20:15"
+            label: "8:15 pm"
+          - name: "20:30"
+            label: "8:30 pm"
+          - name: "20:45"
+            label: "8:45 pm"
+          - name: "21:00"
+            label: "9:00 pm"
+          - name: "21:15"
+            label: "9:15 pm"
+          - name: "21:30"
+            label: "9:30 pm"
+          - name: "21:45"
+            label: "9:45 pm"
+          - name: "22:00"
+            label: "10:00 pm"
+          - name: "22:15"
+            label: "10:15 pm"
+          - name: "22:30"
+            label: "10:30 pm"
+          - name: "22:45"
+            label: "10:45 pm"
+          - name: "23:00"
+            label: "11:00 pm"
+
+  day:
+    type: object
+    fields:
+      - name: open
+        label: Open this day
+        type: boolean
+      - name: firstTable
+        label: First table
+        component: time
+      - name: lastTable
+        label: Last table seated
+        component: time
+
+content:
+  # ------------------------------------------------------------------ menu
+  - name: menu
+    label: The menu
+    type: file
+    path: content/menu.json
+    format: json
+    fields:
+      - name: updated
+        label: Date updated
+        type: date
+        options:
+          format: yyyy-MM-dd
+        description: Shown on the home page and the Menus page as "updated September 30". Set it to the day you change the menu.
+      - name: price
+        label: Price of the three courses
+        type: number
+        options:
+          min: 0
+        description: Dollars, number only.
+      - name: priceNote
+        label: Line under the price
+        type: string
+        description: Like "per guest · beverages extra".
+      - name: intro
+        label: Opening line on the Menus page
+        type: text
+      - name: dayOfNote
+        label: Note about changes on the day
+        type: text
+        description: Shown under the opening line on the Menus page.
+      - name: menuPdf
+        label: Menu PDF
+        type: file
+        options:
+          media: pdfs
+          extensions: [pdf]
+        description: The printable menu behind the "Download the PDF" link. Upload the new one whenever the menu changes.
+      - name: first
+        label: First course
+        component: dish
+      - name: second
+        label: Second course
+        component: dish
+      - name: dessert
+        label: Dessert
+        component: dish
+      - name: photos
+        label: Photos for the menu preview on the home page
+        type: object
+        fields:
+          - name: first
+            label: First course photo
+            component: photo
+          - name: second
+            label: Second course photo
+            component: photo
+          - name: dessert
+            label: Dessert photo
+            component: photo
+      - name: galetteNote
+        label: Line under the dessert photo on the Menus page
+        type: text
+      - name: notes
+        label: Notes at the end of the dinner menu
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: title
+            label: Heading
+            type: string
+          - name: text
+            label: Text
+            type: text
+
+  # ------------------------------------------------------------------ drinks
+  - name: drinks
+    label: Drinks and wine list
+    type: file
+    path: content/drinks.json
+    format: json
+    fields:
+      - name: wineListPdf
+        label: Wine list PDF
+        type: file
+        options:
+          media: pdfs
+          extensions: [pdf]
+      - name: barIntro
+        label: Bar introduction on the home page
+        type: text
+      - name: corkage
+        label: Corkage line
+        type: string
+      - name: cocktails
+        label: House cocktails
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name} ({price})"
+        fields:
+          - name: name
+            label: Name
+            type: string
+            required: true
+          - name: description
+            label: What's in it
+            type: string
+          - name: price
+            label: Price
+            type: string
+            description: Dollars, number only.
+      - name: byTheGlassNote
+        label: Note beside "Wine by the glass"
+        type: string
+        description: Like "5 oz pours".
+      - name: byTheGlass
+        label: Wine by the glass
+        component: wineGroup
+      - name: beerNote
+        label: Note beside "Beer and cider"
+        type: string
+        description: Like "12 oz · 7 each".
+      - name: beer
+        label: Beer and cider
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name}"
+        fields:
+          - name: name
+            label: Name
+            type: string
+            required: true
+      - name: bottleIntro
+        label: Line above the bottle list
+        type: text
+      - name: bottles
+        label: The bottle list
+        component: wineGroup
+      - name: dessertWines
+        label: Dessert wines
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name} ({price})"
+        fields:
+          - name: name
+            label: Name
+            type: string
+            required: true
+          - name: size
+            label: Bottle size
+            type: string
+            description: Like "375 ml". Leave empty for a full bottle.
+          - name: price
+            label: Price
+            type: string
+      - name: fortifiedNote
+        label: Note beside "Fortified wines"
+        type: string
+        description: Like "3 oz".
+      - name: fortified
+        label: Fortified wines
+        component: priced
+      - name: brandiesNote
+        label: Note beside "Brandy and grappa"
+        type: string
+      - name: brandies
+        label: Brandy and grappa
+        component: priced
+
+  # ------------------------------------------------------------------ hours
+  - name: hours
+    label: Hours, closures and booking
+    type: file
+    path: content/hours.json
+    format: json
+    fields:
+      - name: notice
+        label: Notice at the top of every page
+        type: object
+        description: For holidays, private events or a change in hours.
+        fields:
+          - name: show
+            label: Show the notice
+            type: boolean
+          - name: text
+            label: Notice text
+            type: string
+            description: Like "Closed Thanksgiving Day. Back Friday at 5."
+      - name: week
+        label: Weekly hours
+        type: object
+        description: The live "Open now" line, the booking buttons and the hours everywhere on the site come from here.
+        fields:
+          - name: monday
+            label: Monday
+            component: day
+          - name: tuesday
+            label: Tuesday
+            component: day
+          - name: wednesday
+            label: Wednesday
+            component: day
+          - name: thursday
+            label: Thursday
+            component: day
+          - name: friday
+            label: Friday
+            component: day
+          - name: saturday
+            label: Saturday
+            component: day
+          - name: sunday
+            label: Sunday
+            component: day
+      - name: closingNote
+        label: Line under the hours
+        type: string
+        description: Says the room stays open after the last seating, like "We stay open after the last seating, usually until 9:30 or 10."
+      - name: closedDates
+        label: Closed dates
+        type: date
+        list: true
+        default: ""
+        options:
+          format: yyyy-MM-dd
+        description: Add a date to close for one night, like a holiday. The site skips it. Remove dates once they pass.
+      - name: booking
+        label: Booking rules
+        type: object
+        description: Keep these the same as your Resy settings. The site writes the booking line from them.
+        fields:
+          - name: windowDays
+            label: Days ahead guests can book
+            type: number
+            options:
+              min: 1
+          - name: depositFromPartySize
+            label: Deposit needed from this party size
+            type: number
+            options:
+              min: 0
+            description: Set 0 if there's no deposit.
+          - name: callFromPartySize
+            label: Parties this size or larger should call
+            type: number
+            options:
+              min: 0
+
+  # ------------------------------------------------------------------ restaurant details
+  - name: site
+    label: Restaurant details and links
+    type: file
+    path: content/site.json
+    format: json
+    fields:
+      - name: tagline
+        label: Tagline
+        type: string
+        description: Shown in the footer.
+      - name: description
+        label: Short description
+        type: text
+        description: What Google and social media show under the site's name. Keep it to one or two sentences.
+      - name: phone
+        label: Phone
+        type: string
+      - name: email
+        label: Email
+        type: string
+      - name: runningLate
+        label: Running late line
+        type: string
+      - name: address
+        label: Address
+        type: object
+        fields:
+          - name: street
+            label: Street
+            type: string
+          - name: city
+            label: City
+            type: string
+          - name: state
+            label: State (short)
+            type: string
+          - name: stateName
+            label: State (full name)
+            type: string
+          - name: zip
+            label: ZIP code
+            type: string
+          - name: directionsNote
+            label: How to find us
+            type: string
+      - name: gettingHere
+        label: Before you come (getting here and parking)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: title
+            label: Heading
+            type: string
+          - name: text
+            label: Text
+            type: text
+      - name: giftCertificates
+        label: Gift certificates
+        type: text
+        description: The line beside "Gift certificates" in the Visit section of the home page.
+      - name: privateDining
+        label: Private dining sizes
+        type: object
+        description: The Private dining page and its inquiry form use these numbers.
+        fields:
+          - name: longTableMax
+            label: Most guests at the long table
+            type: number
+            options:
+              min: 1
+          - name: roomSeats
+            label: Seats for a buyout (the whole room)
+            type: number
+            options:
+              min: 1
+      - name: links
+        label: Links
+        type: object
+        fields:
+          - name: resy
+            label: Resy page
+            type: string
+          - name: instagram
+            label: Instagram
+            type: string
+          - name: instagramHandle
+            label: Instagram handle
+            type: string
+            description: With the @, like @kismet_vancouver.
+          - name: facebook
+            label: Facebook
+            type: string
+          - name: googleMaps
+            label: Google Maps listing
+            type: string
+          - name: googleReview
+            label: Google review link
+            type: string
+            description: In your Google Business Profile, open Read reviews, then Get more reviews, then Copy. Used on the home page and the thank-you page.
+          - name: directions
+            label: Directions link
+            type: string
+      - name: ratings
+        label: Ratings
+        type: object
+        description: Update the scores now and then from Resy and Google.
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{source} {score}"
+        fields:
+          - name: source
+            label: Where
+            type: string
+          - name: score
+            label: Score
+            type: string
+            description: Like 4.9.
+          - name: url
+            label: Link to the reviews
+            type: string
+      - name: featuredBy
+        label: As featured by
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name}"
+        fields:
+          - name: name
+            label: Outlet
+            type: string
+      - name: press
+        label: Press articles (Our story page)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{outlet}: {headline}"
+        fields:
+          - name: outlet
+            label: Outlet
+            type: string
+          - name: date
+            label: Month and year
+            type: string
+            description: Like "August 2026".
+          - name: headline
+            label: Headline
+            type: string
+          - name: url
+            label: Link
+            type: string

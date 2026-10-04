@@ -1,0 +1,116 @@
+{
+  "name": "Kismet",
+  "legalName": "Kismet Restaurant Group Inc.",
+  "tagline": "Seasonal fine dining on historic Main Street.",
+  "description": "Seasonal fine dining on historic Main Street in downtown Vancouver, Washington. Three courses, your choice at each, from Chef Eric Gallanter.",
+  "address": {
+    "street": "909 Main Street",
+    "city": "Vancouver",
+    "state": "WA",
+    "stateName": "Washington",
+    "zip": "98660",
+    "directionsNote": "Look for the orange sign on historic Main Street, downtown."
+  },
+  "geo": {
+    "latitude": 45.6283479,
+    "longitude": -122.671273
+  },
+  "phone": "(360) 798-9874",
+  "email": "hello@kismetvancouver.com",
+  "runningLate": "Running late? Please call. We don’t see texts or email during service.",
+  "links": {
+    "resy": "https://resy.com/cities/portland-or/venues/kismet-wa",
+    "instagram": "https://www.instagram.com/kismet_vancouver/",
+    "instagramHandle": "@kismet_vancouver",
+    "facebook": "https://www.facebook.com/people/Kismet-Vancouver/61588387916955/",
+    "googleMaps": "https://www.google.com/maps/place/Kismet+Restaurant/@45.6283479,-122.671273,17z/data=!3m1!4b1!4m6!3m5!1s0x5495a919881116bd:0xbab38af60a314d43!8m2!3d45.6283479!4d-122.671273!16s%2Fg%2F11x2cpn9f9",
+    "googleReview": "https://www.google.com/maps/place/Kismet+Restaurant/@45.6283479,-122.671273,17z/data=!3m1!4b1!4m6!3m5!1s0x5495a919881116bd:0xbab38af60a314d43!8m2!3d45.6283479!4d-122.671273!16s%2Fg%2F11x2cpn9f9",
+    "directions": "https://www.google.com/maps/dir/?api=1&destination=Kismet%20Restaurant%2C%20909%20Main%20St%2C%20Vancouver%2C%20WA%2098660"
+  },
+  "resy": {
+    "useWidget": true,
+    "venueId": 96384,
+    "apiKey": "tUSVmJ1ngeKPYbMTksSVBDyqdWOqIg0z",
+    "partySize": 2
+  },
+  "ratings": [
+    {
+      "source": "Resy",
+      "score": "4.9",
+      "url": "https://resy.com/cities/portland-or/venues/kismet-wa"
+    },
+    {
+      "source": "Google",
+      "score": "4.8",
+      "url": "https://www.google.com/maps/place/Kismet+Restaurant/@45.6283479,-122.671273,17z/data=!3m1!4b1!4m6!3m5!1s0x5495a919881116bd:0xbab38af60a314d43!8m2!3d45.6283479!4d-122.671273!16s%2Fg%2F11x2cpn9f9"
+    }
+  ],
+  "featuredBy": [
+    {
+      "name": "The Columbian’s Clark County Compass"
+    },
+    {
+      "name": "Explore the Couve"
+    },
+    {
+      "name": "Vancouver’s Downtown Association"
+    },
+    {
+      "name": "Bridgetown Bites"
+    },
+    {
+      "name": "WhatNow Portland"
+    }
+  ],
+  "press": [
+    {
+      "outlet": "Vancouver’s Downtown Association",
+      "date": "August 2026",
+      "headline": "Meet Kismet: Main Street’s Newest Destination for Fine Dining",
+      "url": "https://vdausa.org/meet-kismet-main-streets-newest-destination-for-fine-dining/"
+    },
+    {
+      "outlet": "Clark County Compass, The Columbian",
+      "date": "June 2026",
+      "headline": "Dine Local: Meet the Team Behind Kismet in Downtown Vancouver",
+      "url": "https://www.columbian.com/wp-content/uploads/2026/06/06_06_26-CC-Compass_LOW-RES.pdf"
+    },
+    {
+      "outlet": "Explore the Couve",
+      "date": "May 2026",
+      "headline": "Kismet Vancouver: A New Chapter in Vancouver’s Fine-Dining Scene",
+      "url": "https://www.explorethecouve.com/post/kismet-vancouver-a-new-chapter-in-vancouver-s-fine-dining-scene"
+    },
+    {
+      "outlet": "Bridgetown Bites",
+      "date": "December 2025",
+      "headline": "Small Bites: Kismet in Vancouver, Boriken, Raclette, and More",
+      "url": "https://bridgetownbites.com/2025/12/12/small-bites-kismet-in-vancouver-boriken-raclette-portland-oregon/"
+    },
+    {
+      "outlet": "WhatNow Portland",
+      "date": "December 2024",
+      "headline": "Chef Eric Gallanter Aims to Debut New Concept, Kismet, in Vancouver",
+      "url": "https://whatnow.com/portland/restaurants/chef-eric-gallanter-aims-to-debut-new-concept-kismet-in-vancouver/"
+    }
+  ],
+  "gettingHere": [
+    {
+      "title": "From Portland",
+      "text": "About ten miles from downtown Portland, straight up I-5 across the Columbia. Allow extra time at rush hour."
+    },
+    {
+      "title": "From Camas",
+      "text": "About 20 minutes west on SR-14."
+    },
+    {
+      "title": "Parking",
+      "text": "Free in the lot behind the restaurant; mind the reserved spaces nearest Broadway. Street meters are free after 6 pm."
+    }
+  ],
+  "giftCertificates": "Ours are the old-school paper kind. Pick one up at the restaurant, or call us and we’ll mail it to the recipient.",
+  "privateDining": {
+    "longTableMax": 16,
+    "roomSeats": 36
+  }
+}
