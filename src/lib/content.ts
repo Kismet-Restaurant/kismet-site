@@ -88,6 +88,19 @@ export type Site = {
   privateDining: { longTableMax: number; roomSeats: number }
 }
 
+/**
+ * Every string in a content file, with a non-breaking space between a number and "am" or "pm",
+ * so times like "6 pm" that editors type never split across lines.
+ */
+function keepTimesTogether<T>(value: T): T {
+  if (typeof value === 'string') return value.replace(/(\d) (am|pm)\b/g, '$1\u00a0$2') as T
+  if (Array.isArray(value)) return value.map(keepTimesTogether) as T
+  if (value && typeof value === 'object') {
+    return Object.fromEntries(Object.entries(value).map(([k, v]) => [k, keepTimesTogether(v)])) as T
+  }
+  return value
+}
+
 const TIME = /^([01]?\d|2[0-3]):[0-5]\d$/
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/
 
@@ -123,10 +136,10 @@ function normalizeHours(raw: Record<string, unknown>): Hours {
   }
 }
 
-export const menu = menuJson as Menu
-export const drinks = drinksJson as Drinks
-export const hours = normalizeHours(hoursJson as Record<string, unknown>)
-export const site = siteJson as Site
+export const menu = keepTimesTogether(menuJson) as Menu
+export const drinks = keepTimesTogether(drinksJson) as Drinks
+export const hours = normalizeHours(keepTimesTogether(hoursJson) as Record<string, unknown>)
+export const site = keepTimesTogether(siteJson) as Site
 
 /** tel: link from the display phone number */
 export const tel = `tel:+1${site.phone.replace(/\D/g, '')}`
@@ -158,7 +171,7 @@ export function numberWord(n: number, capital = false): string {
   return capital ? w.charAt(0).toUpperCase() + w.slice(1) : w
 }
 
-/** "Book up to 60 days ahead. Parties of five or more hold their table with a deposit; for eight or more, please call." */
+/** "Book up to 60 days ahead. Parties of five or more hold their table with a deposit; for seven or more, please call." */
 export function bookingNote(b: Booking): string {
   const parts: string[] = []
   if (b.windowDays) parts.push(`Book up to ${b.windowDays} days ahead.`)

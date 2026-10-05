@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
-import { ActionBar, Footer, Header, Notice } from '@/components/Chrome'
+import { ActionBar, Footer, Header } from '@/components/Chrome'
+import { Notice } from '@/components/Notice'
 
 export default function SiteLayout({ children }: { children: ReactNode }) {
   return (

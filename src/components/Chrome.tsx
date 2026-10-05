@@ -1,11 +1,11 @@
-// The frame around every main page: notice banner, header, phone action bar and footer.
+// The frame around every main page: header, phone action bar and footer. The notice banner is in Notice.tsx.
 import Link from 'next/link'
 import { PrimaryLogo } from './Logo'
 import { Icon } from './Icons'
 import { ReserveButton } from './Bits'
 import { MobileMenu, NavLinks, type NavItem } from './Nav'
 import { hours, site, tel, mailto } from '@/lib/content'
-import { groupHours, hoursSummary, range } from '@/lib/hours'
+import { groupHours, hoursSummary } from '@/lib/hours'
 
 export const NAV: NavItem[] = [
   { label: 'Menus', href: '/menus' },
@@ -19,15 +19,6 @@ const EXTRAS: NavItem[] = [
   { label: 'Instagram', href: site.links.instagram },
 ]
 
-export function Notice() {
-  if (!hours.notice.show || !hours.notice.text.trim()) return null
-  return (
-    <div className="notice" role="status">
-      <p>{hours.notice.text}</p>
-    </div>
-  )
-}
-
 export function Header() {
   const address = `${site.address.street}, ${site.address.city}, ${site.address.state}`
   return (
@@ -39,10 +30,18 @@ export function Header() {
         <NavLinks items={NAV} />
         <div className="site-header__right">
           <p className="site-header__hours">{hoursSummary(hours.week)}</p>
+          {/* Hidden on phones, where the action bar has the Reserve button */}
           <ReserveButton size="sm" className="site-header__reserve">
             Reserve
           </ReserveButton>
-          <MobileMenu items={NAV} extras={EXTRAS} phone={site.phone} tel={tel} address={address} />
+          <MobileMenu
+            items={NAV}
+            extras={EXTRAS}
+            phone={site.phone}
+            tel={tel}
+            address={address}
+            reserve={<ReserveButton block />}
+          />
         </div>
       </div>
     </header>
@@ -102,13 +101,13 @@ export function Footer() {
               {groupHours(hours.week).map((g) => (
                 <li key={g.label}>
                   <span className="footer-hours__days">{g.short}</span>
-                  {/* "Seating 5 to 8 pm": the room stays open after the last seating, so the footer never says "5 to 8" */}
-                  <span className="footer-hours__time">{g.open ? `Seating ${range(g)}` : 'Closed'}</span>
+                  {/* seatingText, "5 pm, last seating 8 pm": the room stays open later, so the footer never says "5 to 8" */}
+                  <span className="footer-hours__time">{g.text}</span>
                 </li>
               ))}
             </ul>
           </div>
-          <div className="site-footer__col site-footer__col--contact">
+          <div className="site-footer__col">
             <h2 className="eyebrow eyebrow--brass">Contact</h2>
             <a href={tel}>{site.phone}</a>
             <a href={mailto}>{site.email}</a>

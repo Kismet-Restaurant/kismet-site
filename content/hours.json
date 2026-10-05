@@ -40,11 +40,11 @@
       "lastTable": ""
     }
   },
-  "closingNote": "We stay open after the last seating, usually until 9:30 or 10, or as long as guests linger.",
+  "closingNote": "We stay open after the last seating, usually until 9:30 pm or 10 pm, or as long as guests linger.",
   "closedDates": [],
   "booking": {
     "windowDays": 60,
     "depositFromPartySize": 5,
-    "callFromPartySize": 8
+    "callFromPartySize": 7
   }
 }

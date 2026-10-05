@@ -2,7 +2,7 @@
 // Main navigation: inline links on wider screens, a full-screen menu on phones.
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { Icon } from './Icons'
 
 export type NavItem = { label: string; href: string }
@@ -35,12 +35,15 @@ export function MobileMenu({
   phone,
   tel,
   address,
+  reserve,
 }: {
   items: NavItem[]
   extras: NavItem[]
   phone: string
   tel: string
   address: string
+  /** The Reserve button. The open menu covers the action bar, so it needs its own. */
+  reserve: ReactNode
 }) {
   const [open, setOpen] = useState(false)
   const pathname = usePathname()
@@ -141,6 +144,10 @@ export function MobileMenu({
             ))}
           </ul>
         </nav>
+        {/* Close the menu as Resy's booking window opens, so the window isn't left behind it */}
+        <div className="mobile-menu__reserve" onClickCapture={() => setOpen(false)}>
+          {reserve}
+        </div>
         <div className="mobile-menu__contact">
           <a href={tel}>{phone}</a>
           <p>{address}</p>

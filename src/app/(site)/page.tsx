@@ -93,8 +93,7 @@ export default function Home() {
             <p className="intro__statement">Seasonal fine dining, thoughtfully prepared and genuinely welcoming.</p>
             <p className="body">
               Kismet is Chef Eric Gallanter and Kim Sinclair’s restaurant on historic Main Street: one room, a small team and a menu
-              that follows the Northwest harvest. Eric trained at the Culinary Institute of America and ran the kitchen at Meadowood
-              in Napa Valley before the two of them opened Kismet in December 2025.
+              that follows the Northwest harvest.
             </p>
             <TextLink href="/story">Read our story</TextLink>
           </div>
@@ -143,8 +142,8 @@ export default function Home() {
           </div>
           <div className="teaser__foot">
             <p className="body teaser__note">
-              The menu follows the season, so dishes change as ingredients come and go. Allergies or dietary needs? Tell us when
-              you book, and please call ahead about serious allergies.
+              The menu follows the season, so dishes change as ingredients come and go. Questions about the menu? We welcome
+              your <a href={tel}>call</a> or <a href={mailto}>email</a> anytime.
             </p>
             <div className="actions">
               <TextLink href="/menus">Full menu and wine list</TextLink>
@@ -169,7 +168,8 @@ export default function Home() {
               One room on Main Street, with walnut mirrors, brass lamps and a blue bench out front that came from the Portland airport.
             </p>
             <p className="italic no-phone">
-              Celebrating at a regular table? Let us know ahead and bring the birthday cake, as long as the chef gets a slice.
+              Celebrating at a regular table? Let us know ahead, and you’re welcome to bring the birthday cake, as long as the
+              chef gets a slice.
             </p>
           </div>
           <div className="stack room__private" style={{ ['--gap' as string]: '18px' }}>
@@ -187,7 +187,8 @@ export default function Home() {
               </ButtonLink>
             </div>
             <p className="italic phone-only">
-              Celebrating at a regular table? Let us know ahead and bring the birthday cake, as long as the chef gets a slice.
+              Celebrating at a regular table? Let us know ahead, and you’re welcome to bring the birthday cake, as long as the
+              chef gets a slice.
             </p>
           </div>
         </div>

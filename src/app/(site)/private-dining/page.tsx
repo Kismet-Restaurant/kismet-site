@@ -19,10 +19,9 @@ const STEPS = [
 ]
 
 export default function PrivateDiningPage() {
-  const { callFromPartySize, depositFromPartySize } = hours.booking
-  // "Eight or more ... call us; for five to seven, reserve on Resy." Falls back gracefully if the numbers change.
-  const large = callFromPartySize || 8
-  const resyFrom = depositFromPartySize > 1 && depositFromPartySize < large - 1 ? depositFromPartySize : 0
+  // Parties of callFromPartySize or more call; smaller parties book on Resy. With 7 in content/hours.json:
+  // "A long table for 7 to 16 guests ... Call us to book it; for 6 people or fewer, reserve on Resy."
+  const large = hours.booking.callFromPartySize || 7
   return (
     <>
       <section className="pd-hero bg-linen" aria-labelledby="pd-title">
@@ -65,7 +64,7 @@ export default function PrivateDiningPage() {
               <p className="body">
                 A long table for {large} to {longTableMax} guests during regular service. Everyone chooses from the three-course menu.
                 Call us to book it
-                {resyFrom ? `; for ${resyFrom} to ${large - 1} people, reserve on Resy.` : '.'}
+                {large > 2 ? `; for ${large - 1} people or fewer, reserve on Resy.` : '.'}
               </p>
             </div>
             <div className="format">
