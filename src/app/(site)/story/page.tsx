@@ -34,14 +34,14 @@ const TEAM: Person[] = [
   },
   {
     name: 'Dillon',
-    role: '',
-    bio: '',
+    role: 'Bar manager',
+    bio: 'Dillon runs the bar.',
     photo: { src: '/photos/dillon-sm.jpg', alt: 'Dillon shaking a cocktail behind the Kismet bar', position: '50% 30%' },
   },
   {
     name: 'Lacey',
-    role: '',
-    bio: '',
+    role: 'Floor manager',
+    bio: 'Lacey runs the dining room.',
     photo: { src: '/photos/lacey-sm.jpg', alt: 'Lacey holding oysters on ice and a Dungeness crab cake', position: '50% 25%' },
   },
 ]

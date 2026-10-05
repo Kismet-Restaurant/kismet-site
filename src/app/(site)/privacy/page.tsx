@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
-import { Eyebrow, Placeholder } from '@/components/Bits'
+import { Eyebrow } from '@/components/Bits'
 import { mailto, site } from '@/lib/content'
 
 export const metadata: Metadata = {
@@ -26,11 +26,7 @@ export default function PrivacyPage() {
     },
     {
       title: 'Site visits',
-      body: (
-        <>
-          <Placeholder>Analytics tool, once chosen</Placeholder> counts page visits so we can see which pages help guests.
-        </>
-      ),
+      body: 'Google Analytics counts page visits so we can see which pages help guests. It uses cookies, which you can block in your browser.',
     },
     {
       title: 'What we don’t do',
@@ -60,7 +56,7 @@ export default function PrivacyPage() {
             We collect only what we need to seat you, answer you and send the notes you ask for. We never sell it.
           </p>
           <p className="small">
-            Last updated <Placeholder>date of launch</Placeholder>
+            Last updated October 5, 2026.
           </p>
         </div>
       </section>

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import localFont from 'next/font/local'
 import type { ReactNode } from 'react'
+import { Analytics } from '@/components/Analytics'
 import { ResyLoader } from '@/components/Resy'
 import { site } from '@/lib/content'
 import './globals.css'
@@ -50,6 +51,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body>
         {children}
         <ResyLoader venueId={site.resy.venueId} apiKey={site.resy.apiKey} enabled={site.resy.useWidget} />
+        <Analytics id={site.googleAnalyticsId} />
       </body>
     </html>
   )
