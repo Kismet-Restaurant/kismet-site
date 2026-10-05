@@ -78,6 +78,8 @@ export type Site = {
     directions: string
   }
   resy: { useWidget: boolean; venueId: number; apiKey: string; partySize: number }
+  /** Google Analytics measurement ID; it only loads on the live site */
+  googleAnalyticsId: string
   ratings: { source: string; score: string; url: string }[]
   featuredBy: { name: string }[]
   press: { outlet: string; date: string; headline: string; url: string }[]

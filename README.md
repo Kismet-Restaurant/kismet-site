@@ -100,10 +100,7 @@ The quick date buttons on the home page ("Tonight", "Tomorrow" and so on) open R
 
 ## Before launch
 
-- A role and one line each for Dillon and Lacey (the Our story page shows placeholders until then).
 - The full-size file of the photo of Kim and Eric in the doorway. Kim's portrait is cropped from a small screenshot of it for now.
-- The Google review link from Google Business Profile, in *Restaurant details and links*.
-- The analytics tool and launch date on the Privacy page.
 - Point the domain at Vercel (the steps are in the build checklist).
 
 ## Run it on a computer
