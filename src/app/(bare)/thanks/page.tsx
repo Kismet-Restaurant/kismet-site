@@ -47,7 +47,12 @@ export default function ThanksPage() {
         </div>
         <div className="thanks__mirror">
           <Mirror>
-            <Photo src="/photos/galette-sm.jpg" alt="A berry galette with cream and mint" sizes="176px" priority />
+            <Photo
+              src="/photos/creme-brulee-above-sm.jpg"
+              alt="Crème brûlée on a paper liner stamped with the Kismet logo, seen from above"
+              sizes="176px"
+              priority
+            />
           </Mirror>
         </div>
         <h1 className="thanks__title">Thank you for joining us.</h1>

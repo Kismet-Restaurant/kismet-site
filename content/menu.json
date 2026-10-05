@@ -99,9 +99,9 @@
       "caption": "Pictured: tenderloin of beef, foie gras demi-glace"
     },
     "dessert": {
-      "image": "/photos/galette-sm.jpg",
-      "alt": "A berry galette dusted with sugar, finished with cream and mint",
-      "caption": "Pictured: the galette in August, with cherries and blackberries. Right now it’s Washington pear."
+      "image": "/photos/creme-brulee-above-sm.jpg",
+      "alt": "Crème brûlée on a paper liner stamped with the Kismet logo, seen from above",
+      "caption": "Pictured: crème brûlée, Madagascar vanilla bean"
     }
   },
   "notes": [
@@ -118,5 +118,5 @@
       "text": "Consuming raw or undercooked meats, poultry, seafood, shellfish or eggs might increase your risk of foodborne illness. Please ask your server if you have any concerns."
     }
   ],
-  "galetteNote": "The galette follows the fruit: cherries and blackberries in August, Washington pears now."
+  "galetteNote": ""
 }

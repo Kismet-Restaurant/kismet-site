@@ -24,8 +24,7 @@ const TEAM: Person[] = [
     name: 'Kim Sinclair',
     role: 'Co-owner',
     bio: 'Kim co-owns Kismet with Eric. She’s the restaurant’s sounding board, and some evenings she’s the one who greets you at the door.',
-    // Every photo of Kim from the shoot has Eric beside her, so her card shows both owners.
-    photo: { src: '/photos/kim-and-eric.jpg', alt: 'Kim Sinclair and Chef Eric Gallanter in the front doorway of Kismet' },
+    photo: { src: '/photos/kim.jpg', alt: 'Kim Sinclair in the front doorway of Kismet' },
   },
   {
     name: 'Chris Townsend',
@@ -37,7 +36,7 @@ const TEAM: Person[] = [
     name: 'Dillon',
     role: 'Bar manager',
     bio: 'Dillon runs the bar.',
-    photo: { src: '/photos/dillon.jpg', alt: 'Dillon shaking a cocktail behind the Kismet bar', position: '50% 30%' },
+    photo: { src: '/photos/dillon.jpg', alt: 'Dillon, bar manager, smiling in front of the wine shelves at the bar', position: '50% 30%' },
   },
   {
     name: 'Lacey',

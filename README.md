@@ -39,7 +39,7 @@ The menu changes when ingredients come and go, not on a schedule. The site shows
 1. Upload the new menu PDF (and wine list PDF if it changed).
 2. In *The menu*: change the date updated, the dishes and, if needed, the photos and captions.
 3. Check the home page menu preview and the Menus page on your phone.
-4. The Links and Thanks pages show the crab cake and the galette. If either leaves the menu, ask Claude to swap the photo.
+4. The Links and Thanks pages show the crab cake and the crème brûlée. If either leaves the menu, ask Claude to swap the photo.
 
 **A holiday or a private buyout**
 
