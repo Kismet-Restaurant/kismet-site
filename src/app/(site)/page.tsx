@@ -22,8 +22,11 @@ export default function Home() {
     { key: 'dessert', title: 'Dessert', dishes: menu.dessert, photo: menu.photos.dessert },
   ] as const
   const igTiles = [
-    { src: '/photos/oysters-sm.jpg', alt: 'Oysters on ice with lemon and mignonette' },
-    { src: '/photos/tomato-sm.jpg', alt: 'Balsamic poured over heirloom tomatoes with blue cheese' },
+    {
+      src: '/photos/dining-room-evening-sm.jpg',
+      alt: 'The dining room during dinner, with brass lamps along the banquette tables and guests out of focus beyond',
+    },
+    { src: '/photos/tomato-salad-sm.jpg', alt: 'Heirloom tomato salad with blue cheese, shaved shallots and saba' },
     { src: '/photos/amuse-sm.jpg', alt: 'Watermelon and feta on porcelain spoons' },
     { src: '/photos/trout-sm.jpg', alt: 'Rainbow trout with brown butter and lemon' },
     { src: '/photos/bar-sm.jpg', alt: 'Late afternoon sun across the Kismet bar' },

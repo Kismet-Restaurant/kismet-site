@@ -13,7 +13,7 @@ This is the website for Kismet, a seasonal fine-dining restaurant at 909 Main St
 
 ## Common requests
 
-- **New menu:** the menu changes when ingredients come and go, not monthly. Update `content/menu.json` (`updated`, the three courses, photos and captions, PDF path). Put the new PDF in `public/pdf` and new photos in `public/photos`. Check whether `content/drinks.json` should change too. The Links and Thanks pages show the crab cake and the galette; swap those photos if the dishes leave the menu.
+- **New menu:** the menu changes when ingredients come and go, not monthly. Update `content/menu.json` (`updated`, the three courses, photos and captions, PDF path). Put the new PDF in `public/pdf` and new photos in `public/photos`. Check whether `content/drinks.json` should change too. The Links and Thanks pages show the crab cake and the crème brûlée; swap those photos if the dishes leave the menu.
 - **Closed for a holiday:** add the date to `closedDates` in `content/hours.json`, and turn on `notice` with a short line if Kim wants one.
 - **Press:** add the article to `press` in `content/site.json`, newest first, and the outlet to `featuredBy` if it's new.
 

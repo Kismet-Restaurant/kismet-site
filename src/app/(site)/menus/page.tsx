@@ -101,9 +101,11 @@ export default function MenusPage() {
           <CourseHead title="Dessert" sub="Choose one" id="dessert" />
           <Dishes items={menu.dessert} />
           <Photo src={menu.photos.dessert.image} alt={menu.photos.dessert.alt} className="after__photo" sizes="(min-width: 1080px) 40vw, 100vw" />
-          <p className="caption" style={{ paddingTop: 8 }}>
-            {menu.galetteNote}
-          </p>
+          {menu.galetteNote ? (
+            <p className="caption" style={{ paddingTop: 8 }}>
+              {menu.galetteNote}
+            </p>
+          ) : null}
         </div>
         <div className="after__more stack" style={{ ['--gap' as string]: '28px' }}>
           <CourseHead title="After dinner" sub="By the bottle or the pour" id="after" />
