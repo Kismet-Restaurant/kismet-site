@@ -202,7 +202,7 @@ export default function StoryPage() {
           <h2 className="h2 h2--sm">Come see for yourself.</h2>
           <div className="actions">
             <TextLink href="/menus">See the menu</TextLink>
-            <ReserveButton block />
+            <ReserveButton block className="no-phone" />
           </div>
         </div>
       </section>
