@@ -120,7 +120,11 @@ export default function PrivateDiningPage() {
         <div className="wrap photo-strip">
           <Photo src="/photos/lamb-sm.jpg" alt="" sizes="(min-width: 720px) 33vw, 33vw" />
           <Photo src="/photos/tenderloin-sm.jpg" alt="" sizes="(min-width: 720px) 33vw, 33vw" />
-          <Photo src="/photos/oysters-sm.jpg" alt="" sizes="(min-width: 720px) 33vw, 33vw" />
+          <Photo
+            src="/photos/dining-room-evening-sm.jpg"
+            alt="The dining room during dinner, with brass lamps along the banquette tables and guests out of focus beyond"
+            sizes="(min-width: 720px) 33vw, 33vw"
+          />
         </div>
       </section>
     </>
