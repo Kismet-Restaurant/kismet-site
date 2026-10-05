@@ -44,7 +44,7 @@ The menu changes when ingredients come and go, not on a schedule. The site shows
 **A holiday or a private buyout**
 
 1. In *Hours, closures and booking*, add the date under **Closed dates**. The open/closed line and the booking buttons skip it.
-2. Turn on the **notice** with a short line, like "Closed Thanksgiving Day. Back Friday at 5." Turn it off afterward.
+2. Turn on the **notice** with a short line, like "Closed Thanksgiving Day. Back Friday at 5 pm." It shows at the top of every page, Links and Thanks included. Turn it off afterward.
 3. Block the date in Resy and update Google Business Profile too. The website doesn't change either of those.
 
 **Hours change**
@@ -100,7 +100,6 @@ The quick date buttons on the home page ("Tonight", "Tomorrow" and so on) open R
 
 ## Before launch
 
-- The full-size file of the photo of Kim and Eric in the doorway. Kim's portrait is cropped from a small screenshot of it for now.
 - Point the domain at Vercel (the steps are in the build checklist).
 
 ## Run it on a computer

@@ -24,25 +24,26 @@ const TEAM: Person[] = [
     name: 'Kim Sinclair',
     role: 'Co-owner',
     bio: 'Kim co-owns Kismet with Eric. She’s the restaurant’s sounding board, and some evenings she’s the one who greets you at the door.',
-    photo: { src: '/photos/kim.jpg', alt: 'Kim Sinclair in the front doorway of Kismet', position: '50% 30%' },
+    // Every photo of Kim from the shoot has Eric beside her, so her card shows both owners.
+    photo: { src: '/photos/kim-and-eric.jpg', alt: 'Kim Sinclair and Chef Eric Gallanter in the front doorway of Kismet' },
   },
   {
     name: 'Chris Townsend',
     role: 'Sous chef',
     bio: 'Chris brings twenty years of regional American and French cooking to the kitchen. In August 2026 he won the Hooked on Nature cook-off at Columbia Springs with braised rabbit vol-au-vents.',
-    photo: { src: '/photos/chris-sm.jpg', alt: 'Chris Townsend, sous chef, in the Kismet kitchen', position: '50% 20%' },
+    photo: { src: '/photos/chris.jpg', alt: 'Chris Townsend, sous chef, in the Kismet kitchen', position: '50% 20%' },
   },
   {
     name: 'Dillon',
     role: 'Bar manager',
     bio: 'Dillon runs the bar.',
-    photo: { src: '/photos/dillon-sm.jpg', alt: 'Dillon shaking a cocktail behind the Kismet bar', position: '50% 30%' },
+    photo: { src: '/photos/dillon.jpg', alt: 'Dillon shaking a cocktail behind the Kismet bar', position: '50% 30%' },
   },
   {
     name: 'Lacey',
     role: 'Floor manager',
     bio: 'Lacey runs the dining room.',
-    photo: { src: '/photos/lacey-sm.jpg', alt: 'Lacey holding oysters on ice and a Dungeness crab cake', position: '50% 25%' },
+    photo: { src: '/photos/lacey.jpg', alt: 'Lacey holding oysters on ice and a Dungeness crab cake', position: '50% 25%' },
   },
 ]
 
@@ -91,10 +92,9 @@ export default function StoryPage() {
               and culinary director.
             </p>
             <p className="body">
-              He taught as a senior instructor at the California Culinary Academy, consulted for the Oriental Hotel in Bangkok and in
-              1999 founded Eric Gallanter Private Dining in San Francisco. In December 2025 he and Kim opened Kismet on Main Street,
-              where he runs the kitchen and takes pride in finding the best of each season from a variety of growers, ranchers and
-              purveyors.
+              He taught as a senior instructor at the California Culinary Academy and founded his company, Eric Gallanter Private
+              Dining &amp; Consulting, in San Francisco. In December 2025 he and Kim opened Kismet on Main Street, where he and
+              his team work together to make Kismet better each day.
             </p>
           </div>
         </div>
@@ -202,7 +202,7 @@ export default function StoryPage() {
           <h2 className="h2 h2--sm">Come see for yourself.</h2>
           <div className="actions">
             <TextLink href="/menus">See the menu</TextLink>
-            <ReserveButton block />
+            <ReserveButton block className="no-phone" />
           </div>
         </div>
       </section>

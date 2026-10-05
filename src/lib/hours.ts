@@ -31,16 +31,9 @@ function meridiem(hhmm: string): 'am' | 'pm' {
   return Math.floor(minutes(hhmm) / 60) % 24 >= 12 ? 'pm' : 'am'
 }
 
-/** "20:30" -> "8:30 pm" */
+/** "20:30" -> "8:30 pm", with a non-breaking space so "8:30" and "pm" never split across lines. */
 export function clockFull(hhmm: string): string {
-  return `${clock(hhmm)} ${meridiem(hhmm)}`
-}
-
-/** "5 to 8:30 pm" */
-export function range(day: DayHours): string {
-  const a = day.firstTable
-  const b = day.lastTable
-  return meridiem(a) === meridiem(b) ? `${clock(a)} to ${clock(b)} ${meridiem(b)}` : `${clockFull(a)} to ${clockFull(b)}`
+  return `${clock(hhmm)}\u00a0${meridiem(hhmm)}`
 }
 
 /** "5 pm, last seating 8:30 pm". The room stays open after the last seating, so hours never read as "5 to 8". */
@@ -48,7 +41,7 @@ export function seatingText(day: DayHours): string {
   return `${clockFull(day.firstTable)}, last seating ${clockFull(day.lastTable)}`
 }
 
-/** "17:00" -> "five", "20:30" -> "half past eight" */
+/** "17:00" -> "five", "20:30" -> "half past eight", "17:10" -> "5:10 pm" */
 export function spoken(hhmm: string): string {
   const t = minutes(hhmm)
   const h = Math.floor(t / 60) % 12
@@ -57,7 +50,7 @@ export function spoken(hhmm: string): string {
   if (m === 30) return `half past ${WORDS[h]}`
   if (m === 15) return `quarter past ${WORDS[h]}`
   if (m === 45) return `quarter to ${WORDS[(h + 1) % 12]}`
-  return clock(hhmm)
+  return clockFull(hhmm)
 }
 
 function same(a: DayHours, b: DayHours): boolean {
@@ -74,7 +67,7 @@ export type HoursGroup = {
   lastTable: string
 }
 
-/** Days with the same hours, grouped: "Tuesday to Thursday · 5 to 8 pm", "Sunday and Monday · Closed". */
+/** Days with the same hours, grouped: "Tuesday to Thursday · 5 pm, last seating 8 pm", "Sunday and Monday · Closed". */
 export function groupHours(week: Week): HoursGroup[] {
   const days = DAY_KEYS.map((k) => week[k])
   // Start at the first open day that follows a change, so closed days on either side of Sunday stay together.
@@ -206,7 +199,7 @@ export function service(now: LocalNow, week: Week, closedDates: string[] = []): 
     return {
       state,
       live: true,
-      status: `Opens tonight at ${clock(today.firstTable)} · last seating ${clockFull(today.lastTable)}`,
+      status: `Opens tonight at ${clockFull(today.firstTable)} · last seating ${clockFull(today.lastTable)}`,
       headline: `Tonight, the lamps come on at ${spoken(today.firstTable)}.`,
     }
   }
@@ -246,7 +239,7 @@ export function service(now: LocalNow, week: Week, closedDates: string[] = []): 
   return {
     state,
     live: false,
-    status: `${lead} · open ${whenShort} from ${clock(next.firstTable)}`,
+    status: `${lead} · open ${whenShort} from ${clockFull(next.firstTable)}`,
     headline: after
       ? `Seating is done for tonight. See you ${whenLong} at ${spoken(next.firstTable)}.`
       : `The lamps come on again ${whenLong} at ${spoken(next.firstTable)}.`,

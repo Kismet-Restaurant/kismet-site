@@ -212,7 +212,7 @@ export default function MenusPage() {
             <TextLink href={tel} className="no-phone">
               Call {site.phone}
             </TextLink>
-            <ReserveButton block />
+            <ReserveButton block className="no-phone" />
           </div>
         </div>
       </section>

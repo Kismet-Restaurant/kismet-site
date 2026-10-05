@@ -364,6 +364,48 @@ textarea {
   color: var(--ink);
   cursor: pointer;
 }
+/* Narrow phones (320px, like iPhones with Display Zoom on): slightly narrower capitals, so labels fit on one line */
+@media (max-width: 359.98px) {
+  .btn,
+  .tlink {
+    font-stretch: 100%;
+    letter-spacing: 0.12em;
+  }
+  .btn--lg {
+    padding: 0 20px;
+  }
+}
+/* Small links look the same on phones but get a tap area at least 44px tall */
+@media (max-width: 719.98px) {
+  .tlink,
+  .contact-links a,
+  .teaser__note a,
+  .policy a,
+  .thanks__foot a,
+  .site-footer__col a,
+  .site-footer__legal a,
+  .mobile-menu__extras a,
+  .mobile-menu__contact a {
+    position: relative;
+  }
+  .tlink::after,
+  .contact-links a::after,
+  .teaser__note a::after,
+  .policy a::after,
+  .thanks__foot a::after,
+  .site-footer__col a::after,
+  .site-footer__legal a::after,
+  .mobile-menu__extras a::after,
+  .mobile-menu__contact a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: max(100%, 44px);
+    transform: translateY(-50%);
+  }
+}
 
 /* ---------------------------------------------------------------- layout */
 .section {
@@ -479,6 +521,12 @@ textarea {
 .site-header__reserve {
   padding: 0 16px;
 }
+/* Phones have the Reserve button in the action bar, so the header doesn't repeat it */
+@media (max-width: 719.98px) {
+  .site-header__reserve {
+    display: none;
+  }
+}
 @media (min-width: 1080px) {
   .site-header__inner {
     height: 96px;
@@ -556,9 +604,12 @@ textarea {
   padding-top: 18px;
   border-top: 1px solid var(--rule);
   display: flex;
-  gap: 28px;
+  flex-wrap: wrap;
+  /* rows 44px apart if the links wrap, for their tap areas */
+  gap: 24px 28px;
 }
 .mobile-menu__extras a {
+  white-space: nowrap;
   font-family: var(--sans);
   font-size: 13px;
   font-weight: 600;
@@ -566,6 +617,9 @@ textarea {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   text-decoration: none;
+}
+.mobile-menu__reserve {
+  padding-right: 12px;
 }
 .mobile-menu__contact {
   margin-top: auto;
@@ -589,7 +643,8 @@ textarea {
   bottom: 0;
   z-index: 40;
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+  /* Reserve as wide as its label plus even padding; the other three share the rest, and never less than their labels */
+  grid-template-columns: max-content repeat(3, minmax(max-content, 1fr));
   gap: 6px;
   padding: 10px 12px calc(14px + env(safe-area-inset-bottom));
   background: var(--paper);
@@ -608,12 +663,17 @@ textarea {
 }
 .action-bar__reserve {
   gap: 8px;
+  padding: 0 16px;
   background: var(--ember);
   color: var(--white);
   border-radius: 2px;
   font-size: 12px;
   font-stretch: 112%;
   letter-spacing: 0.14em;
+}
+/* without the tracking after the last letter, the space either side of the label matches */
+.action-bar__reserve span {
+  margin-right: -0.14em;
 }
 .action-bar__item {
   flex-direction: column;
@@ -675,7 +735,8 @@ textarea {
   padding-top: 28px;
   border-top: 1px solid var(--esp-rule);
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  /* one column on phones, so "5 pm, last seating 8 pm" fits on one line */
+  grid-template-columns: minmax(0, 1fr);
   gap: 28px 20px;
   font-size: 17px;
   line-height: 1.45;
@@ -689,8 +750,11 @@ textarea {
 .site-footer__col .eyebrow {
   margin-bottom: 4px;
 }
-.site-footer__col--contact {
-  grid-column: 1 / -1;
+@media (max-width: 719.98px) {
+  /* stacked links sit 44px apart (the link's line, the column's 8px gap and this margin), so each gets a full 44px tap area */
+  .site-footer__col a + a {
+    margin-top: calc(44px - 1.45em - 8px);
+  }
 }
 .footer-hours {
   display: flex;
@@ -721,9 +785,6 @@ textarea {
 @media (min-width: 720px) {
   .site-footer__cols {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-  .site-footer__col--contact {
-    grid-column: auto;
   }
 }
 @media (min-width: 1080px) {
@@ -788,12 +849,14 @@ textarea {
 }
 .quick-dates {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  /* equal widths, but never narrower than a label like "Tomorrow" */
+  grid-template-columns: repeat(4, minmax(max-content, 1fr));
   gap: 8px;
   max-width: 440px;
 }
 .date-chip {
   height: 64px;
+  padding: 0 4px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1151,6 +1214,9 @@ select.input {
   font-size: 16px;
   color: var(--muted);
 }
+.teaser__note a {
+  text-underline-offset: 3px;
+}
 @media (min-width: 1080px) {
   .teaser__head {
     flex-direction: row;
@@ -1408,6 +1474,11 @@ select.input {
   font-style: italic;
   color: var(--ink2);
 }
+@media (max-width: 359.98px) {
+  .proof__outlets .nowrap {
+    white-space: normal;
+  }
+}
 @media (min-width: 1080px) {
   .proof {
     --gap: 56px;
@@ -1551,6 +1622,12 @@ select.input {
   line-height: 1.5;
   text-decoration: none;
   border-bottom: 1px solid var(--rule);
+}
+@media (max-width: 719.98px) {
+  /* 44px apart (28px links, 16px gap), so each gets a full 44px tap area */
+  .contact-links {
+    gap: 16px;
+  }
 }
 .visit__aside .eyebrow {
   padding-bottom: 20px;
@@ -1720,6 +1797,7 @@ select.input {
 }
 .menu-tabs__buttons button {
   height: 44px;
+  padding: 0 4px;
   border: 0;
   border-radius: 2px;
   background: transparent;
@@ -1748,9 +1826,11 @@ select.input {
 }
 .course-head {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: baseline;
-  gap: 16px;
+  /* on narrow screens the label drops under the heading */
+  gap: 6px 16px;
   /* links like /menus#cocktails land below the phone tab bar */
   scroll-margin-top: 88px;
   padding-bottom: 14px;
@@ -1815,6 +1895,7 @@ select.input {
 }
 .after {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 48px;
 }
 .after__photo {
@@ -1837,6 +1918,7 @@ select.input {
 }
 .price-list__size {
   margin-left: 6px;
+  white-space: nowrap;
   font-family: var(--sans);
   font-size: 12px;
   letter-spacing: 0.04em;
@@ -2401,7 +2483,6 @@ select.input {
 
 /* ---------------------------------------------------------------- link page and thank-you page */
 .bare {
-  min-height: 100vh;
   display: flex;
   justify-content: center;
   background: var(--linen);
@@ -2483,6 +2564,14 @@ select.input {
   display: flex;
   align-items: center;
   gap: 12px;
+}
+.link-row svg {
+  flex-shrink: 0;
+}
+@media (max-width: 359.98px) {
+  .link-row {
+    font-stretch: 100%;
+  }
 }
 .link-row:hover {
   border-color: var(--ink);

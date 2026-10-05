@@ -175,6 +175,7 @@ components:
 
   day:
     type: object
+    description: A day only counts as open when "Open this day" is ticked and both times are filled in.
     fields:
       - name: open
         label: Open this day
@@ -382,7 +383,7 @@ content:
           - name: text
             label: Notice text
             type: string
-            description: Like "Closed Thanksgiving Day. Back Friday at 5."
+            description: Like "Closed Thanksgiving Day. Back Friday at 5 pm."
       - name: week
         label: Weekly hours
         type: object
@@ -412,7 +413,7 @@ content:
       - name: closingNote
         label: Line under the hours
         type: string
-        description: Says the room stays open after the last seating, like "We stay open after the last seating, usually until 9:30 or 10."
+        description: Says the room stays open after the last seating, like "We stay open after the last seating, usually until 9:30 pm or 10 pm."
       - name: closedDates
         label: Closed dates
         type: date
