@@ -225,6 +225,13 @@ content:
           media: pdfs
           extensions: [pdf]
         description: The printable menu behind the "Download the PDF" link. Upload the new one whenever the menu changes.
+      - name: dessertPdf
+        label: Dessert menu PDF
+        type: file
+        options:
+          media: pdfs
+          extensions: [pdf]
+        description: The printable dessert menu behind the "Download the dessert menu" link at the end of the Dessert tab.
       - name: first
         label: First course
         component: dish
