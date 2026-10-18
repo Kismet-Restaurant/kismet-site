@@ -1,64 +1,65 @@
 {
-  "updated": "2026-09-30",
+  "updated": "2026-10-18",
   "price": 85,
   "priceNote": "per guest · beverages extra",
   "intro": "Three courses for $85 per guest, beverages extra. Choose one dish from each course; the menu changes with the season.",
   "dayOfNote": "Small changes sometimes happen on the day. If a particular dish matters to you, call us on the day of your reservation.",
   "menuPdf": "/pdf/kismet-menu-october-2026.pdf",
+  "dessertPdf": "/pdf/kismet-dessert-menu-october-2026.pdf",
   "first": [
     {
-      "name": "Oysters on the half shell",
-      "description": "A half dozen on ice, mignonette"
+      "name": "Half dozen oysters on the half shell",
+      "description": "Served on ice with mignonette"
     },
     {
-      "name": "Heirloom tomato salad",
-      "description": "Caveman blue cheese, shaved shallots, saba, olive oil"
+      "name": "Roasted red and golden beet salad",
+      "description": "Endives, pickled fennel, toasted pumpkin seeds and orange vinaigrette"
     },
     {
       "name": "Dungeness crab cake",
       "description": "Sauce gribiche"
     },
     {
-      "name": "Chilled heirloom tomato gazpacho",
-      "description": "Olive oil, garlic, cucumber, breadcrumbs"
+      "name": "Cream of wild mushroom soup",
+      "description": "Crème fraîche"
     },
     {
       "name": "Classic steak tartare",
-      "description": "Minced beef tenderloin, shallots, capers, boiled egg, Worcestershire, raw egg yolk"
+      "description": "Minced beef tenderloin, shallots, capers, boiled egg, Worcestershire and raw egg yolk"
     },
     {
-      "name": "Kampachi carpaccio",
-      "description": "Soy, yuzu ponzu, micro greens, pear salad"
+      "name": "Carpaccio of kampachi",
+      "description": "Soy, yuzu ponzu, micro-green and pear salad"
     },
     {
-      "name": "Fresh fettuccine pesto",
-      "description": "Sweet basil, garlic, pine nuts, Reggiano"
+      "name": "Butternut squash ravioli",
+      "description": "Brown butter, sage and Reggiano"
     }
   ],
   "second": [
     {
       "name": "Tenderloin of beef",
-      "description": "Foie gras demi-glace, spinach, potato purée"
+      "description": "Foie gras thickened demi-glace, spinach, potato purée"
     },
     {
-      "name": "Rainbow brook trout",
-      "description": "Brown butter, lemon, parsley, broccoli rabe"
+      "name": "Filet of rainbow brook trout",
+      "description": "Brown butter, lemon, parsley and broccoli rabe"
     },
     {
       "name": "Seared tenderloin of veal",
-      "description": "Mustard green and leek fondue, roasted chanterelle cream"
+      "description": "Mustard green and leek fondue, roasted chanterelle cream gravy"
     },
     {
       "name": "Smoked and roasted pork loin",
-      "description": "Fig and red wine agrodolce, arugula, sweet corn cakes"
+      "description": "Fig and red wine agrodolce, savory roasted vegetable bread pudding"
     },
     {
-      "name": "Day boat scallops",
-      "description": "Sweet corn maque choux, roasted red pepper purée, crispy shallots"
+      "name": "Seared day boat scallops",
+      "description": "Buttered pumpkin purée, Cosmic Crisp apple, beurre blanc"
     },
     {
-      "name": "Grilled rack of lamb",
-      "description": "Rosemary, garlic, grilled summer vegetable brochette, lemon vinaigrette"
+      "name": "Pan-fried duck breast",
+      "description": "Green lentils and root vegetables"
     }
   ],
   "dessert": [
@@ -67,20 +68,20 @@
       "description": "Curated cheeses, crisps, fruit"
     },
     {
-      "name": "Peach cobbler",
-      "description": "Batter style, baked in cast iron"
+      "name": "Black Mission fig and apple crisp",
+      "description": "Baked in cast iron"
     },
     {
-      "name": "Gelato and cookies",
-      "description": "Ask about tonight’s flavors"
+      "name": "Gelato (various)",
+      "description": "With cookies"
     },
     {
       "name": "Crème brûlée",
       "description": "Madagascar vanilla bean"
     },
     {
-      "name": "Washington “Happi” pear galette",
-      "description": "Frangipane, port pear reduction"
+      "name": "Washington green “Happi” pear galette",
+      "description": "Frangipane and port pear reduction"
     },
     {
       "name": "Chocolate hazelnut cake",

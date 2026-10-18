@@ -114,6 +114,11 @@ export default function MenusPage() {
             <SubList title={`Fortified wines · ${drinks.fortifiedNote}`} items={drinks.fortified} />
             <SubList title={`Brandy and grappa · ${drinks.brandiesNote}`} items={drinks.brandies} className="after__wide" />
           </div>
+          {menu.dessertPdf ? (
+            <TextLink href={menu.dessertPdf} icon="download" newTab>
+              Download the dessert menu
+            </TextLink>
+          ) : null}
         </div>
       </div>
     </section>

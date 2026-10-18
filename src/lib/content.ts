@@ -17,6 +17,7 @@ export type Menu = {
   intro: string
   dayOfNote: string
   menuPdf: string
+  dessertPdf: string
   first: Dish[]
   second: Dish[]
   dessert: Dish[]
