@@ -249,7 +249,7 @@ export default function Home() {
                     on {r.source}
                   </p>
                   <TextLink href={r.url} newTab>
-                    Read reviews
+                    Find us on {r.source}
                   </TextLink>
                 </div>
               ))}

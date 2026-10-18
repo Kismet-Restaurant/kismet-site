@@ -1407,19 +1407,9 @@ select.input {
 }
 .proof__ratings {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  /* equal widths, but never narrower than a link like "Find us on Google" */
+  grid-template-columns: repeat(2, minmax(max-content, 1fr));
   gap: 20px;
-}
-@media (max-width: 719.98px) {
-  .rating .tlink {
-    padding: 12px 0 4px;
-    font-size: 12px;
-    font-stretch: 112%;
-    letter-spacing: 0.14em;
-  }
-  .rating .tlink svg {
-    display: none;
-  }
 }
 .rating {
   display: flex;
@@ -1431,6 +1421,32 @@ select.input {
   font-size: clamp(56px, 50px + 1.5vw, 72px);
   line-height: 1;
   font-weight: 340;
+}
+/* Phones: one rating per row, the score beside its stars, source and link, so "Find us on Google" fits on one line */
+@media (max-width: 719.98px) {
+  .proof__ratings {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+  .rating {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 8px 20px;
+    align-items: start;
+    justify-items: start;
+  }
+  .rating__score {
+    grid-row: 1 / span 3;
+  }
+  .rating .tlink {
+    padding: 12px 0 4px;
+    font-size: 12px;
+    font-stretch: 112%;
+    letter-spacing: 0.14em;
+  }
+  .rating .tlink svg {
+    display: none;
+  }
 }
 .ig {
   display: flex;
