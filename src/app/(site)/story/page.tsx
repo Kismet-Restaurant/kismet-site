@@ -3,52 +3,24 @@ import { ButtonLink, Eyebrow, Mirror, Placeholder, PortraitPlaceholder, ReserveB
 import { Icon } from '@/components/Icons'
 import { Photo } from '@/components/Photo'
 import { mailto, site } from '@/lib/content'
+import { CHEF, TEAM } from '@/lib/people'
+import { JsonLd } from '@/components/JsonLd'
+import { storyJsonLd } from '@/lib/schema'
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.kismetvancouver.com'
 
 export const metadata: Metadata = {
-  title: 'Our story',
+  title: 'Our story: Chef Eric Gallanter',
   description:
     'Kismet is Chef Eric Gallanter and Kim Sinclair’s restaurant on historic Main Street in Vancouver, Washington: one room, a small team and a menu that follows the Northwest harvest.',
   alternates: { canonical: '/story' },
 }
 
-type Person = {
-  name: string
-  /** Empty until Kim confirms it; shown as a highlighted placeholder. */
-  role: string
-  bio: string
-  photo?: { src: string; alt: string; position?: string }
-}
-
-const TEAM: Person[] = [
-  {
-    name: 'Kim Sinclair',
-    role: 'Co-owner',
-    bio: 'Kim co-owns Kismet with Eric. She’s the restaurant’s sounding board, and some evenings she’s the one who greets you at the door.',
-    photo: { src: '/photos/kim.jpg', alt: 'Kim Sinclair in the front doorway of Kismet' },
-  },
-  {
-    name: 'Chris Townsend',
-    role: 'Sous chef',
-    bio: 'Chris brings twenty years of regional American and French cooking to the kitchen. In August 2026 he won the Hooked on Nature cook-off at Columbia Springs with braised rabbit vol-au-vents.',
-    photo: { src: '/photos/chris.jpg', alt: 'Chris Townsend, sous chef, in the Kismet kitchen', position: '50% 20%' },
-  },
-  {
-    name: 'Dillon',
-    role: 'Bar manager',
-    bio: 'Dillon runs the bar.',
-    photo: { src: '/photos/dillon.jpg', alt: 'Dillon, bar manager, smiling in front of the wine shelves at the bar', position: '50% 30%' },
-  },
-  {
-    name: 'Lacey',
-    role: 'Floor manager',
-    bio: 'Lacey runs the dining room.',
-    photo: { src: '/photos/lacey.jpg', alt: 'Lacey holding oysters on ice and a Dungeness crab cake', position: '50% 25%' },
-  },
-]
-
 export default function StoryPage() {
   return (
     <>
+      <JsonLd data={storyJsonLd(siteUrl)} />
+
       <section className="story-hero bg-linen" aria-labelledby="story-title">
         <div className="story-hero__text stack">
           <Eyebrow>Our story</Eyebrow>
@@ -77,24 +49,19 @@ export default function StoryPage() {
         <div className="wrap split">
           <div className="split__a chef__mirror">
             <Mirror>
-              <Photo src="/photos/eric-portrait.jpg" alt="Chef Eric Gallanter in the front doorway of Kismet" sizes="440px" />
+              <Photo src={CHEF.photo.src} alt={CHEF.photo.alt} sizes="440px" />
             </Mirror>
           </div>
           <div className="split__b stack">
             <Eyebrow>The chef</Eyebrow>
             <h2 id="chef-title" className="h2">
-              Eric Gallanter
+              {CHEF.name}
             </h2>
-            <p className="body">
-              Eric has cooked professionally since 1981. He trained under Master Chef Alfred Mayer, graduated with honors from the
-              Culinary Institute of America in New York and went on to run the kitchen at Meadowood in Napa Valley as executive chef
-              and culinary director.
-            </p>
-            <p className="body">
-              He taught as a senior instructor at the California Culinary Academy and founded his company, Eric Gallanter Private
-              Dining &amp; Consulting, in San Francisco. In December 2025 he and Kim opened Kismet on Main Street, where he and
-              his team work together to make Kismet better each day.
-            </p>
+            {CHEF.bio.map((p) => (
+              <p className="body" key={p.slice(0, 24)}>
+                {p}
+              </p>
+            ))}
           </div>
         </div>
       </section>

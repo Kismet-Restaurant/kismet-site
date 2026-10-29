@@ -61,6 +61,8 @@ Change the weekly hours in *Hours, closures and booking*. Every place on the sit
 | Pages | `src/app` (home, menus, story, private dining, privacy, links, thanks) |
 | Shared pieces | `src/components` |
 | Hours logic, content types, HubSpot, structured data | `src/lib` |
+| The people on Our story (names, roles, bios) | `src/lib/people.ts` |
+| The plain-text summary for AI assistants, at /llms.txt | `src/app/llms.txt/route.ts` (built from the content files) |
 | Styles | `src/app/globals.css` |
 | Fonts (Newsreader and Archivo, SIL Open Font License) | `src/app/fonts` |
 | Pages CMS setup | `.pages.yml` |
