@@ -2,12 +2,15 @@ import type { Metadata } from 'next'
 import { ButtonLink, Eyebrow, TextLink } from '@/components/Bits'
 import { InquiryForm } from '@/components/Forms'
 import { Photo } from '@/components/Photo'
+import { JsonLd } from '@/components/JsonLd'
 import { hours, site, tel } from '@/lib/content'
+import { pageJsonLd } from '@/lib/schema'
 
 const { longTableMax, roomSeats } = site.privateDining
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.kismetvancouver.com'
 
 export const metadata: Metadata = {
-  title: 'Private dining',
+  title: `Private dining for up to ${roomSeats} guests`,
   description: `Rehearsal dinners, milestone birthdays, business dinners and holiday parties at Kismet in Vancouver, Washington. The whole room for up to ${roomSeats} seated guests, or a long table for up to ${longTableMax} during service.`,
   alternates: { canonical: '/private-dining' },
 }
@@ -24,6 +27,8 @@ export default function PrivateDiningPage() {
   const large = hours.booking.callFromPartySize || 7
   return (
     <>
+      <JsonLd data={pageJsonLd(siteUrl)} />
+
       <section className="pd-hero bg-linen" aria-labelledby="pd-title">
         <div className="pd-hero__text stack">
           <Eyebrow>Private dining</Eyebrow>

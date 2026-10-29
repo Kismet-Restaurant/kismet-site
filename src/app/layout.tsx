@@ -31,10 +31,17 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: 'Kismet · Seasonal fine dining in Vancouver, WA',
-    template: '%s · Kismet',
+    // "Kismet" alone is shared with restaurants and shows elsewhere, so every page title says where we are.
+    template: '%s · Kismet in Vancouver, WA',
   },
   description: site.description,
   applicationName: site.name,
+  // Let Google show large photos and full-length snippets of these pages in search results and AI Overviews.
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1, 'max-video-preview': -1 },
+  },
   openGraph: { type: 'website', siteName: site.name, locale: 'en_US' },
   twitter: { card: 'summary_large_image' },
   formatDetection: { telephone: false, address: false, email: false },

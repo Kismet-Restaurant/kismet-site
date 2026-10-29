@@ -8,7 +8,8 @@ import { Brandmark } from '@/components/Logo'
 import { Photo } from '@/components/Photo'
 import { bookingNote, drinks, hours, longDate, mailto, menu, numberWord, shortDate, site, tel } from '@/lib/content'
 import { clockFull, groupHours } from '@/lib/hours'
-import { restaurantJsonLd } from '@/lib/schema'
+import { homeJsonLd } from '@/lib/schema'
+import { JsonLd } from '@/components/JsonLd'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.kismetvancouver.com'
 
@@ -35,7 +36,7 @@ export default function Home() {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(restaurantJsonLd(siteUrl)) }} />
+      <JsonLd data={homeJsonLd(siteUrl)} />
 
       {/* ---------------------------------------------------------------- hero */}
       <section className="hero" aria-labelledby="hero-title">

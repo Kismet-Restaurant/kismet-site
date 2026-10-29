@@ -2,11 +2,15 @@ import type { Metadata } from 'next'
 import { ButtonLink, Eyebrow, ReserveButton, TextLink } from '@/components/Bits'
 import { MenuTabs } from '@/components/MenuTabs'
 import { Photo } from '@/components/Photo'
+import { JsonLd } from '@/components/JsonLd'
 import { bottleCount, drinks, longDate, menu, shortDate, site, tel, type Dish, type PricedItem, type WineGroup } from '@/lib/content'
+import { menusJsonLd } from '@/lib/schema'
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.kismetvancouver.com'
 
 export const metadata: Metadata = {
-  title: 'Menus',
-  description: `${menu.intro} Cocktails, wines by the glass and ${bottleCount} bottles.`,
+  title: 'Menu and wine list',
+  description: `The current menu at ${site.name} on Main Street in ${site.address.city}, ${site.address.state}: three courses for $${menu.price} per guest, your choice at each, beverages extra. Cocktails, wines by the glass and ${bottleCount} bottles.`,
   alternates: { canonical: '/menus' },
 }
 
@@ -170,6 +174,8 @@ export default function MenusPage() {
 
   return (
     <>
+      <JsonLd data={menusJsonLd(siteUrl)} />
+
       <section className="section bg-linen" style={{ paddingBottom: 'clamp(20px, 4vw, 56px)' }}>
         <div className="wrap stack menus-title">
           <div className="menus-title__top">
