@@ -4,21 +4,9 @@ The website for Kismet, seasonal fine dining at 909 Main Street, Vancouver, Wash
 
 - **Code:** this repository, in Kismet's GitHub organization.
 - **Hosting:** Vercel. Every change pushed to `main` goes live in about a minute. Every other branch gets its own private preview link.
-- **Editing:** Pages CMS for Kim and Eric, and Claude for bigger changes. Both work the same way underneath: they change files in this repository.
+- **Editing:** Claude Code. Every change is made on a branch, so it gets a preview link before it goes live.
 
 ## How editing works
-
-### For Kim and Eric: Pages CMS
-
-1. Go to [app.pagescms.org](https://app.pagescms.org) and sign in with info@kismetvancouver.com, the one address invited.
-2. Open **kismet-site**. The left side lists four screens:
-   - **The menu**: date updated, price, the dishes in each course, the note about changes on the day, photos and the menu PDF.
-   - **Drinks and wine list**: cocktails, wine by the glass, beer, the bottle list, after-dinner drinks and the wine list PDF.
-   - **Hours, closures and booking**: weekly hours (opening time and last seating), the line about staying open after the last seating, one-off closed dates, the notice banner and the Resy booking rules.
-   - **Restaurant details and links**: phone, email, address, links, gift certificates, private dining sizes, ratings and press.
-3. Make the change and press **Save**. The site updates in about a minute.
-
-Every save is recorded in GitHub, so any change can be undone.
 
 ### For Arthur: Claude
 
@@ -28,7 +16,7 @@ Open this repository with Claude and ask in plain words, for example:
 - "We're closed November 26 for Thanksgiving. Add the closed date and a notice."
 - "Add the new article from The Columbian to the press list."
 
-Claude edits the same content files, checks the build and pushes the change. For anything bigger than content, ask Claude to work on a branch so you get a preview link before it goes live.
+Claude edits the content files on a branch and checks the build, so every change gets a preview link before it goes live.
 
 ## Common jobs
 
@@ -37,19 +25,19 @@ Claude edits the same content files, checks the build and pushes the change. For
 The menu changes when ingredients come and go, not on a schedule. The site shows the date it was last updated, so there's no month to change.
 
 1. Upload the new menu PDF (and wine list PDF if it changed).
-2. In *The menu*: change the date updated, the dishes and, if needed, the photos and captions.
+2. In `content/menu.json`: change the date updated, the dishes and, if needed, the photos and captions.
 3. Check the home page menu preview and the Menus page on your phone.
 4. The Links and Thanks pages show the crab cake and the crème brûlée. If either leaves the menu, ask Claude to swap the photo.
 
 **A holiday or a private buyout**
 
-1. In *Hours, closures and booking*, add the date under **Closed dates**. The open/closed line and the booking buttons skip it.
+1. Add the date to the closed dates in `content/hours.json`. The open/closed line and the booking buttons skip it.
 2. Turn on the **notice** with a short line, like "Closed Thanksgiving Day. Back Friday at 5 pm." It shows at the top of every page, Links and Thanks included. Turn it off afterward.
 3. Block the date in Resy and update Google Business Profile too. The website doesn't change either of those.
 
 **Hours change**
 
-Change the weekly hours in *Hours, closures and booking*. Every place on the site that shows hours, plus the live "Open now" line and Google's structured data, comes from there. Update Resy and Google Business Profile to match.
+Change the weekly hours in `content/hours.json`. Every place on the site that shows hours, plus the live "Open now" line and Google's structured data, comes from there. Update Resy and Google Business Profile to match.
 
 ## Where things live
 
@@ -65,7 +53,6 @@ Change the weekly hours in *Hours, closures and booking*. Every place on the sit
 | The plain-text summary for AI assistants, at /llms.txt | `src/app/llms.txt/route.ts` (built from the content files) |
 | Styles | `src/app/globals.css` |
 | Fonts (Newsreader and Archivo, SIL Open Font License) | `src/app/fonts` |
-| Pages CMS setup | `.pages.yml` |
 | Notes that tell Claude how this site works | `CLAUDE.md` |
 
 Two pages are for guests who arrive from somewhere specific and are hidden from search engines:
