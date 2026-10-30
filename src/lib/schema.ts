@@ -1,5 +1,5 @@
 // Restaurant details in the format search engines and AI assistants read (schema.org JSON-LD), built from the
-// content files, so a change in Pages CMS reaches Google the next time the site builds.
+// content files, so a change to them reaches Google the next time the site builds.
 //
 // Every main page carries the same Restaurant under one @id, so a crawler that reads a single page still gets the
 // address, hours, phone and booking link. The Menus page adds the menu and drinks; Our story adds the people.

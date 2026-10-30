@@ -1,5 +1,5 @@
-// Typed access to the content files in /content. Editors change those files through Pages CMS;
-// every page reads them from here, so a change shows up everywhere at once.
+// Typed access to the content files in /content. Every page reads them from here, so a change shows up
+// everywhere at once.
 import menuJson from '../../content/menu.json'
 import drinksJson from '../../content/drinks.json'
 import hoursJson from '../../content/hours.json'
