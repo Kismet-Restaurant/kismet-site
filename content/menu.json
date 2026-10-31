@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-18",
+  "updated": "2026-10-31",
   "price": 85,
   "priceNote": "per guest · beverages extra",
   "intro": "Three courses for $85 per guest, beverages extra. Choose one dish from each course; the menu changes with the season.",
@@ -51,7 +51,7 @@
     },
     {
       "name": "Smoked and roasted pork loin",
-      "description": "Fig and red wine agrodolce, savory roasted vegetable bread pudding"
+      "description": "Cranberry and red wine agrodolce, savory roasted vegetable bread pudding"
     },
     {
       "name": "Seared day boat scallops",
@@ -68,7 +68,7 @@
       "description": "Curated cheeses, crisps, fruit"
     },
     {
-      "name": "Black Mission fig and apple crisp",
+      "name": "Fresh cranberry and apple crisp",
       "description": "Baked in cast iron"
     },
     {
@@ -80,7 +80,7 @@
       "description": "Madagascar vanilla bean"
     },
     {
-      "name": "Washington green “Happi” pear galette",
+      "name": "Washington pear galette",
       "description": "Frangipane and port pear reduction"
     },
     {
