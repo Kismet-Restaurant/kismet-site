@@ -1,7 +1,7 @@
 {
   "wineListPdf": "/pdf/kismet-wine-list-october-2026.pdf",
-  "barIntro": "Four house cocktails, thirteen wines by the glass and more than sixty bottles. The list leans on Oregon Pinot Noir and Napa Cabernet, including St. Supéry Élu from 2016 to 2019.",
-  "bottleIntro": "Strongest in Oregon Pinot Noir and Napa Cabernet, including St. Supéry Élu from 2016 to 2019.",
+  "barIntro": "Four house cocktails, thirteen wines by the glass and more than sixty bottles. The list leans on Oregon Pinot Noir and Napa Cabernet, including the 2018 and 2019 St. Supéry Élu.",
+  "bottleIntro": "Strongest in Oregon Pinot Noir and Napa Cabernet, including the 2018 and 2019 St. Supéry Élu.",
   "corkage": "Bringing a special bottle? It’s welcome for a modest corkage fee.",
   "cocktails": [
     {
@@ -154,10 +154,6 @@
     {
       "type": "Sparkling",
       "wines": [
-        {
-          "name": "Argyle NV, Oregon",
-          "price": "55"
-        },
         {
           "name": "Chandon, Napa Valley, Brut NV",
           "price": "59"
@@ -361,6 +357,10 @@
           "price": "154"
         },
         {
+          "name": "Sea Smoke “10” Santa Rita Hills 2023",
+          "price": "165"
+        },
+        {
           "name": "Domaine Serene, Evenstad Reserve, Willamette Valley 2021",
           "price": "200"
         },
@@ -382,19 +382,7 @@
           "price": "83"
         },
         {
-          "name": "St. Supéry, “Élu” 2017",
-          "price": "88"
-        },
-        {
-          "name": "St. Supéry, “Élu” 2016",
-          "price": "99"
-        },
-        {
           "name": "St. Supéry, “Élu” 2018",
-          "price": "99"
-        },
-        {
-          "name": "St. Supéry, Dollarhide Elevation 2013",
           "price": "99"
         },
         {
@@ -408,10 +396,6 @@
         {
           "name": "Merryvale, Napa Valley 2017",
           "price": "121"
-        },
-        {
-          "name": "Silver Oak, Alexander Valley 2021",
-          "price": "137"
         },
         {
           "name": "Sequoia Grove, Napa Valley 2022",
