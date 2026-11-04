@@ -1,7 +1,7 @@
 {
-  "wineListPdf": "/pdf/kismet-wine-list-october-2026.pdf",
-  "barIntro": "Four house cocktails, thirteen wines by the glass and more than sixty bottles. The list leans on Oregon Pinot Noir and Napa Cabernet, including the 2018 and 2019 St. Supéry Élu.",
-  "bottleIntro": "Strongest in Oregon Pinot Noir and Napa Cabernet, including the 2018 and 2019 St. Supéry Élu.",
+  "wineListPdf": "/pdf/kismet-wine-list-november-2026.pdf",
+  "barIntro": "Five house cocktails, thirteen wines by the glass and more than sixty bottles. The list leans on Oregon Pinot Noir and Napa Cabernet, including the 2017, 2018 and 2019 St. Supéry Élu.",
+  "bottleIntro": "Strongest in Oregon Pinot Noir and Napa Cabernet, including the 2017, 2018 and 2019 St. Supéry Élu.",
   "corkage": "Bringing a special bottle? It’s welcome for a modest corkage fee.",
   "cocktails": [
     {
@@ -23,6 +23,11 @@
       "name": "Not Quite the Last Word",
       "description": "Drumshanbo laurel and fig gin, Chartreuse and lime",
       "price": "20"
+    },
+    {
+      "name": "“Shrubbery”",
+      "description": "Seasonal shrub infused with vodka. Served over ice.",
+      "price": "15"
     }
   ],
   "byTheGlassNote": "5 oz pours",
@@ -41,6 +46,10 @@
       "wines": [
         {
           "name": "J. Lohr, Flume Crossing, Monterey 2024",
+          "price": "11"
+        },
+        {
+          "name": "Decoy, Duckhorn Portfolio 2024",
           "price": "11"
         },
         {
@@ -94,10 +103,6 @@
         {
           "name": "Failla, Willamette Valley 2023",
           "price": "18"
-        },
-        {
-          "name": "Argyle, Willamette Valley 2023",
-          "price": "20"
         }
       ]
     },
@@ -313,10 +318,6 @@
           "price": "40"
         },
         {
-          "name": "Argyle, Willamette Valley 2024",
-          "price": "42"
-        },
-        {
           "name": "Failla, Willamette Valley 2023",
           "price": "45"
         },
@@ -378,8 +379,16 @@
           "price": "58"
         },
         {
+          "name": "St. Supéry, Dollarhide 2019",
+          "price": "67"
+        },
+        {
           "name": "St. Supéry, “Élu” 2019",
           "price": "83"
+        },
+        {
+          "name": "St. Supéry, “Élu” 2017",
+          "price": "99"
         },
         {
           "name": "St. Supéry, “Élu” 2018",
@@ -392,6 +401,10 @@
         {
           "name": "St. Supéry, Dollarhide Elevation 2019",
           "price": "99"
+        },
+        {
+          "name": "St. Supéry, Napa Valley Estate 2019",
+          "price": "108"
         },
         {
           "name": "Merryvale, Napa Valley 2017",
