@@ -4,7 +4,8 @@ import menuJson from '../../content/menu.json'
 import drinksJson from '../../content/drinks.json'
 import hoursJson from '../../content/hours.json'
 import siteJson from '../../content/site.json'
-import { DAY_KEYS, type DayHours, type Week } from './hours'
+import nyeJson from '../../content/new-years-eve.json'
+import { DAY_KEYS, type DayHours, type SpecialNight, type Week } from './hours'
 
 export type Dish = { name: string; description: string }
 export type CoursePhoto = { image: string; alt: string; caption: string }
@@ -49,14 +50,53 @@ export type Drinks = {
 
 export type Booking = { windowDays: number; depositFromPartySize: number; callFromPartySize: number }
 
+export type Notice = {
+  show: boolean
+  text: string
+  /** Optional link after the text, like "See the menu" */
+  link?: { href: string; text: string }
+  /** Optional last day to show it ("YYYY-MM-DD"); after that day the notice hides itself */
+  until?: string
+}
+
 export type Hours = {
-  notice: { show: boolean; text: string }
+  notice: Notice
   week: Week
   /** The line under the hours table, about staying open after the last seating */
   closingNote: string
   /** One-off closures, "YYYY-MM-DD" */
   closedDates: string[]
+  /** One-off evenings with their own times and page, like New Year's Eve */
+  specialNights: SpecialNight[]
   booking: Booking
+}
+
+/** A special evening with its own page and menu (content/new-years-eve.json). */
+export type SpecialEvening = {
+  name: string
+  /** "YYYY-MM-DD" */
+  date: string
+  /** The home page section and the Links page row hide themselves after this day */
+  hideAfter: string
+  eyebrow: string
+  title: string
+  metaTitle: string
+  metaDescription: string
+  lede: string
+  price: number
+  priceNote: string
+  /** Percent; Washington law asks that any menu showing a service charge says how much goes to staff (serviceNote) */
+  serviceCharge: number
+  serviceNote: string
+  reserveUrl: string
+  /** Times guests can arrive, "HH:MM" */
+  seatings: { name: string; from: string; until: string }[]
+  seatingNote: string
+  courses: { title: string; choose?: boolean; dishes: Dish[] }[]
+  wine: { title: string; price: number; text: string }
+  photo: { image: string; alt: string; caption: string }
+  notes: Note[]
+  home: { title: string; text: string; button: string }
 }
 
 export type Site = {
@@ -122,13 +162,30 @@ function normalizeHours(raw: Record<string, unknown>): Hours {
   const closedDates = (Array.isArray(raw.closedDates) ? raw.closedDates : [])
     .map((v) => String(typeof v === 'object' && v ? (v as { date?: unknown }).date ?? '' : v).slice(0, 10))
     .filter((v) => ISO_DATE.test(v))
-  const notice = (raw.notice ?? {}) as Partial<Hours['notice']>
+  const notice = (raw.notice ?? {}) as Partial<Notice>
+  const link = notice.link && String(notice.link.href ?? '').trim() && String(notice.link.text ?? '').trim() ? notice.link : undefined
+  const until = String(notice.until ?? '').slice(0, 10)
+  const specialNights = (Array.isArray(raw.specialNights) ? (raw.specialNights as Partial<SpecialNight>[]) : [])
+    .map((n) => ({
+      date: String(n.date ?? '').slice(0, 10),
+      name: String(n.name ?? '').trim(),
+      firstTable: String(n.firstTable ?? '').trim(),
+      lastTable: String(n.lastTable ?? '').trim(),
+      href: String(n.href ?? '').trim(),
+    }))
+    .filter((n) => ISO_DATE.test(n.date) && TIME.test(n.firstTable) && TIME.test(n.lastTable))
   const booking = (raw.booking ?? {}) as Partial<Booking>
   return {
-    notice: { show: Boolean(notice.show && String(notice.text ?? '').trim()), text: String(notice.text ?? '').trim() },
+    notice: {
+      show: Boolean(notice.show && String(notice.text ?? '').trim()),
+      text: String(notice.text ?? '').trim(),
+      ...(link ? { link: { href: link.href.trim(), text: link.text.trim() } } : {}),
+      ...(ISO_DATE.test(until) ? { until } : {}),
+    },
     week,
     closingNote: String(raw.closingNote ?? '').trim(),
     closedDates,
+    specialNights,
     booking: {
       windowDays: Number(booking.windowDays) || 60,
       depositFromPartySize: Number(booking.depositFromPartySize) || 0,
@@ -141,6 +198,7 @@ export const menu = keepTimesTogether(menuJson) as Menu
 export const drinks = keepTimesTogether(drinksJson) as Drinks
 export const hours = normalizeHours(keepTimesTogether(hoursJson) as Record<string, unknown>)
 export const site = keepTimesTogether(siteJson) as Site
+export const newYearsEve = keepTimesTogether(nyeJson) as SpecialEvening
 
 /** tel: link from the display phone number */
 export const tel = `tel:+1${site.phone.replace(/\D/g, '')}`

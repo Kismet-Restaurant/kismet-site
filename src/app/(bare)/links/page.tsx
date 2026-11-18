@@ -4,9 +4,10 @@ import Link from 'next/link'
 import { ReserveButton } from '@/components/Bits'
 import { Icon, Star, type IconName } from '@/components/Icons'
 import { StatusChip } from '@/components/Live'
+import { ShowUntil } from '@/components/ShowUntil'
 import { PrimaryLogo } from '@/components/Logo'
 import { Photo } from '@/components/Photo'
-import { hours, menu, site, tel } from '@/lib/content'
+import { hours, menu, newYearsEve, site, tel } from '@/lib/content'
 
 // The page Kismet's Instagram bio links to.
 export const metadata: Metadata = {
@@ -50,7 +51,7 @@ export default function LinksPage() {
               {site.address.street.replace('Street', 'St')} · {site.address.city}, {site.address.state}
             </p>
           </div>
-          <StatusChip week={hours.week} closed={hours.closedDates} />
+          <StatusChip week={hours.week} closed={hours.closedDates} special={hours.specialNights} />
         </div>
         <Link href="/menus" className="menu-card">
           <Photo src="/photos/crab-cake-sm.jpg" alt="Dungeness crab cake with herbs and sauce gribiche" sizes="430px" priority />
@@ -62,6 +63,11 @@ export default function LinksPage() {
         </Link>
         <div style={{ height: 6 }} />
         <ReserveButton block />
+        <ShowUntil until={newYearsEve.hideAfter}>
+          <Row href="/new-years-eve" icon="calendar">
+            {newYearsEve.name}: the menu and booking
+          </Row>
+        </ShowUntil>
         <Row href="/menus" icon="list">
           See the menu
         </Row>

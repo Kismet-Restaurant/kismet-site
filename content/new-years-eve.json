@@ -1,0 +1,79 @@
+{
+  "name": "New Year’s Eve",
+  "date": "2026-12-31",
+  "hideAfter": "2026-12-31",
+  "eyebrow": "New Year’s Eve · Thursday, December 31",
+  "title": "New Year’s Eve at Kismet",
+  "metaTitle": "New Year’s Eve dinner",
+  "metaDescription": "New Year’s Eve at Kismet on Main Street in Vancouver, Washington: five courses from Chef Eric on Thursday, December 31, in two seatings. $135 per guest, plus a 20% service charge and sales tax, paid when you book.",
+  "lede": "Five courses from Chef Eric for the last night of the year, served in two seatings.",
+  "price": 135,
+  "priceNote": "per guest, plus a 20% service charge and sales tax, paid when you book",
+  "serviceCharge": 20,
+  "serviceNote": "The full service charge goes to the team serving you.",
+  "reserveUrl": "https://resy.com/cities/portland-or/venues/kismet-wa?date=2026-12-31&seats=2",
+  "seatings": [
+    { "name": "First seating", "from": "16:30", "until": "17:30" },
+    { "name": "Second seating", "from": "19:00", "until": "20:00" }
+  ],
+  "seatingNote": "Dinner takes about two hours, and we hold each table for two hours.",
+  "courses": [
+    {
+      "title": "First course",
+      "dishes": [{ "name": "Lobster bisque", "description": "Bas-Armagnac and sweet cream" }]
+    },
+    {
+      "title": "Second course",
+      "dishes": [{ "name": "Roasted beet salad", "description": "Red and golden beets, pickled fennel, pepitas and orange vinaigrette" }]
+    },
+    {
+      "title": "Third course",
+      "dishes": [{ "name": "Grilled Pacific salmon", "description": "Béarnaise, rice pilaf with winter vegetables" }]
+    },
+    {
+      "title": "Fourth course",
+      "dishes": [{ "name": "Tenderloin of beef", "description": "Wild mushroom demi-glace and potato purée" }]
+    },
+    {
+      "title": "Fifth course",
+      "choose": true,
+      "dishes": [
+        { "name": "Apple galette", "description": "" },
+        { "name": "Chocolate mousse tart", "description": "" }
+      ]
+    }
+  ],
+  "wine": {
+    "title": "Wine pairing",
+    "price": 55,
+    "text": "Five wines, 4 oz pours, ordered and paid at the table. The wines will be announced closer to the night."
+  },
+  "photo": {
+    "image": "/photos/tenderloin.jpg",
+    "alt": "Demi-glace poured over tenderloin of beef on potato purée",
+    "caption": "Pictured: tenderloin of beef"
+  },
+  "notes": [
+    {
+      "title": "Paying",
+      "text": "$135 per guest, plus a 20% service charge and sales tax, is paid when you book. The full service charge goes to the team serving you. Wine and other drinks are paid at the table."
+    },
+    {
+      "title": "Change of plans",
+      "text": "Cancel at least 72 hours before your reservation for a full refund. After that we can’t refund, but you can give your table to someone else: email hello@kismetvancouver.com with their name by December 30."
+    },
+    {
+      "title": "Allergies and dietary needs",
+      "text": "The menu is set, with a choice at dessert. Tell us when you book, and please call ahead about serious allergies. Some changes are possible and some aren’t; we can’t create separate dishes or custom menus."
+    },
+    {
+      "title": "Over the holidays",
+      "text": "We’re closed Friday, December 25 through Monday, December 28, and Friday, January 1 through Thursday, January 7. We’re back Friday, January 8 at 5 pm."
+    }
+  ],
+  "home": {
+    "title": "Five courses for the last night of the year.",
+    "text": "Two seatings, from 4:30 pm and from 7 pm. $135 per guest, plus a 20% service charge and sales tax, paid when you book.",
+    "button": "See the menu and book"
+  }
+}

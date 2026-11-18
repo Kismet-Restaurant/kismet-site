@@ -12,6 +12,7 @@ import {
   quickDates,
   service,
   type LocalNow,
+  type SpecialNight,
   type Week,
 } from '@/lib/hours'
 
@@ -45,9 +46,19 @@ function useNow(week: Week): LocalNow | null {
   return now
 }
 
-export function StatusChip({ week, closed = [], tone = 'ink2' }: { week: Week; closed?: string[]; tone?: 'ink2' | 'cream' }) {
+export function StatusChip({
+  week,
+  closed = [],
+  special = [],
+  tone = 'ink2',
+}: {
+  week: Week
+  closed?: string[]
+  special?: SpecialNight[]
+  tone?: 'ink2' | 'cream'
+}) {
   const now = useNow(week)
-  const s = now ? service(now, week, closed) : null
+  const s = now ? service(now, week, closed, special) : null
   return (
     <p className={`status status--${tone}`} aria-live="polite">
       <span className={`status__dot${s?.live ? ' status__dot--live' : ''}`} aria-hidden="true" />
@@ -56,10 +67,22 @@ export function StatusChip({ week, closed = [], tone = 'ink2' }: { week: Week; c
   )
 }
 
-export function LiveHeadline({ week, closed = [], className = '', id }: { week: Week; closed?: string[]; className?: string; id?: string }) {
+export function LiveHeadline({
+  week,
+  closed = [],
+  special = [],
+  className = '',
+  id,
+}: {
+  week: Week
+  closed?: string[]
+  special?: SpecialNight[]
+  className?: string
+  id?: string
+}) {
   const now = useNow(week)
   const words = openingWords(week)
-  const text = now ? service(now, week, closed).headline : words ? `The lamps come on at ${words}.` : 'The lamps are off for now.'
+  const text = now ? service(now, week, closed, special).headline : words ? `The lamps come on at ${words}.` : 'The lamps are off for now.'
   return (
     <h1 className={className} id={id}>
       {text}
@@ -70,24 +93,26 @@ export function LiveHeadline({ week, closed = [], className = '', id }: { week: 
 export function QuickDates({
   week,
   closed = [],
+  special = [],
   resyUrl,
   seats,
   windowDays,
 }: {
   week: Week
   closed?: string[]
+  special?: SpecialNight[]
   resyUrl: string
   seats: number
   windowDays: number
 }) {
   const now = useNow(week)
-  const dates = now ? quickDates(now, week, 4, windowDays, closed) : []
+  const dates = now ? quickDates(now, week, 4, windowDays, closed, special) : []
   return (
     <ul className="quick-dates" aria-label={`Book a table for ${seats}`}>
       {dates.length
         ? dates.map((d) => (
             <li key={d.iso}>
-              <a className="date-chip" href={`${resyUrl}?date=${d.iso}&seats=${seats}`}>
+              <a className="date-chip" href={d.href ?? `${resyUrl}?date=${d.iso}&seats=${seats}`}>
                 <span className="date-chip__day">{d.label}</span>
                 <span className="date-chip__date">{d.sub}</span>
               </a>

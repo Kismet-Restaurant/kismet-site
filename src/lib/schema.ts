@@ -4,8 +4,8 @@
 // Every main page carries the same Restaurant under one @id, so a crawler that reads a single page still gets the
 // address, hours, phone and booking link. The Menus page adds the menu and drinks; Our story adds the people.
 // Test a page at https://search.google.com/test/rich-results or https://validator.schema.org after a change.
-import { bottleCount, drinks, hours, menu, site, tel, type PricedItem, type WineGroup } from './content'
-import { groupHours } from './hours'
+import { bottleCount, drinks, hours, menu, site, tel, type PricedItem, type SpecialEvening, type WineGroup } from './content'
+import { groupHours, usuallyOpen } from './hours'
 import { CHEF, TEAM } from './people'
 
 const SCHEMA_DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
@@ -60,7 +60,9 @@ const owners = [{ name: CHEF.name, role: CHEF.role }, ...TEAM.filter((p) => /co-
 function restaurant(siteUrl: string) {
   const id = ids(siteUrl)
   const today = new Date().toISOString().slice(0, 10)
-  const upcomingClosures = hours.closedDates.filter((d) => d >= today)
+  // Only closures on days we'd usually be open matter to Google; Sundays and Mondays are already closed.
+  const upcomingClosures = hours.closedDates.filter((d) => d >= today && usuallyOpen(d, hours.week))
+  const upcomingSpecials = hours.specialNights.filter((n) => n.date >= today && !hours.closedDates.includes(n.date))
   return {
     '@type': 'Restaurant',
     '@id': id.restaurant,
@@ -104,15 +106,25 @@ function restaurant(siteUrl: string) {
         closes: g.lastTable,
       })),
     // One-off closures (holidays and so on), in the form Google reads: open and close both at midnight.
-    ...(upcomingClosures.length
+    // Special nights (New Year's Eve) list their own first table and last seating.
+    ...(upcomingClosures.length || upcomingSpecials.length
       ? {
-          specialOpeningHoursSpecification: upcomingClosures.map((d) => ({
-            '@type': 'OpeningHoursSpecification',
-            validFrom: d,
-            validThrough: d,
-            opens: '00:00',
-            closes: '00:00',
-          })),
+          specialOpeningHoursSpecification: [
+            ...upcomingClosures.map((d) => ({
+              '@type': 'OpeningHoursSpecification',
+              validFrom: d,
+              validThrough: d,
+              opens: '00:00',
+              closes: '00:00',
+            })),
+            ...upcomingSpecials.map((n) => ({
+              '@type': 'OpeningHoursSpecification',
+              validFrom: n.date,
+              validThrough: n.date,
+              opens: n.firstTable,
+              closes: n.lastTable,
+            })),
+          ].sort((a, b) => a.validFrom.localeCompare(b.validFrom)),
         }
       : {}),
     // The whole room seats this many for a buyout.
@@ -158,6 +170,42 @@ export function homeJsonLd(siteUrl: string) {
       publisher: { '@id': id.restaurant },
     },
     restaurant(siteUrl),
+  ])
+}
+
+/**
+ * A special evening's page (New Year's Eve): the restaurant plus the evening as an Event with its menu and price,
+ * so it can show up in Google's event listings.
+ */
+export function eventJsonLd(siteUrl: string, ev: SpecialEvening, path: string) {
+  const id = ids(siteUrl)
+  const url = `${siteUrl}${path}`
+  // Vancouver, Washington is on Pacific time; this holds for the winter dates these evenings fall on.
+  const offset = Number(ev.date.slice(5, 7)) >= 3 && Number(ev.date.slice(5, 7)) <= 10 ? '-07:00' : '-08:00'
+  const first = ev.seatings[0]
+  return graph([
+    restaurant(siteUrl),
+    {
+      '@type': 'FoodEvent',
+      '@id': `${url}#event`,
+      name: ev.title,
+      description: `${ev.lede} $${ev.price} ${ev.priceNote}. ${ev.serviceNote}`,
+      url,
+      image: [`${siteUrl}/photos/dining-room-evening.jpg`, `${siteUrl}${ev.photo.image}`],
+      startDate: `${ev.date}T${first.from}:00${offset}`,
+      eventStatus: 'https://schema.org/EventScheduled',
+      eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+      location: { '@id': id.restaurant },
+      organizer: { '@id': id.restaurant },
+      offers: {
+        '@type': 'Offer',
+        price: String(ev.price),
+        priceCurrency: 'USD',
+        url: ev.reserveUrl,
+        availability: 'https://schema.org/InStock',
+        description: `Per guest, ${ev.priceNote.replace(/^per guest,\s*/, '')}`,
+      },
+    },
   ])
 }
 

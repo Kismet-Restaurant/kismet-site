@@ -4,9 +4,10 @@ import { ButtonLink, Eyebrow, Mirror, ReserveButton, Stars, TextLink } from '@/c
 import { EmailSignup } from '@/components/Forms'
 import { Icon } from '@/components/Icons'
 import { LiveHeadline, QuickDates, StatusChip } from '@/components/Live'
+import { ShowUntil } from '@/components/ShowUntil'
 import { Brandmark } from '@/components/Logo'
 import { Photo } from '@/components/Photo'
-import { bookingNote, drinks, hours, longDate, mailto, menu, numberWord, shortDate, site, tel } from '@/lib/content'
+import { bookingNote, drinks, hours, longDate, mailto, menu, newYearsEve, numberWord, shortDate, site, tel } from '@/lib/content'
 import { clockFull, groupHours } from '@/lib/hours'
 import { homeJsonLd } from '@/lib/schema'
 import { JsonLd } from '@/components/JsonLd'
@@ -41,8 +42,8 @@ export default function Home() {
       {/* ---------------------------------------------------------------- hero */}
       <section className="hero" aria-labelledby="hero-title">
         <div className="hero__text">
-          <StatusChip week={hours.week} closed={hours.closedDates} />
-          <LiveHeadline week={hours.week} closed={hours.closedDates} className="display" id="hero-title" />
+          <StatusChip week={hours.week} closed={hours.closedDates} special={hours.specialNights} />
+          <LiveHeadline week={hours.week} closed={hours.closedDates} special={hours.specialNights} className="display" id="hero-title" />
           <p className="lede hero__lede">
             Seasonal fine dining on historic Main Street in downtown {site.address.city}, {site.address.stateName}. Three courses, your
             choice at each, for ${menu.price}.
@@ -56,6 +57,7 @@ export default function Home() {
             <QuickDates
               week={hours.week}
               closed={hours.closedDates}
+              special={hours.specialNights}
               resyUrl={site.links.resy}
               seats={site.resy.partySize}
               windowDays={hours.booking.windowDays}
@@ -78,6 +80,26 @@ export default function Home() {
           priority
         />
       </section>
+
+      {/* ---------------------------------------------------------------- New Year's Eve, until the night itself */}
+      <ShowUntil until={newYearsEve.hideAfter}>
+        <section className="bg-esp nye-band" aria-labelledby="nye-band-title">
+          <div className="wrap cta-band">
+            <div className="stack" style={{ ['--gap' as string]: '12px' }}>
+              <Eyebrow tone="brass">{newYearsEve.eyebrow}</Eyebrow>
+              <h2 id="nye-band-title" className="h2 h2--sm">
+                {newYearsEve.home.title}
+              </h2>
+              <p className="body">{newYearsEve.home.text}</p>
+            </div>
+            <div className="actions">
+              <ButtonLink href="/new-years-eve" block>
+                {newYearsEve.home.button}
+              </ButtonLink>
+            </div>
+          </div>
+        </section>
+      </ShowUntil>
 
       {/* ---------------------------------------------------------------- intro */}
       <section className="section bg-linen" style={{ borderTop: '1px solid var(--rule)' }}>
