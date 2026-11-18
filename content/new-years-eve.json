@@ -10,7 +10,7 @@
   "price": 135,
   "priceNote": "per guest, plus a 20% service charge and sales tax, paid when you book",
   "serviceCharge": 20,
-  "serviceNote": "The full service charge goes to the team serving you.",
+  "serviceNote": "The full service charge goes to the team serving you, and no further tip is expected.",
   "reserveUrl": "https://resy.com/cities/portland-or/venues/kismet-wa?date=2026-12-31&seats=2",
   "seatings": [
     { "name": "First seating", "from": "16:30", "until": "17:30" },
@@ -56,7 +56,7 @@
   "notes": [
     {
       "title": "Paying",
-      "text": "$135 per guest, plus a 20% service charge and sales tax, is paid when you book. The full service charge goes to the team serving you. Wine and other drinks are paid at the table."
+      "text": "$135 per guest, plus a 20% service charge and sales tax, is paid when you book. The full service charge goes to the team serving you, and no further tip is expected. Wine and other drinks are paid at the table."
     },
     {
       "title": "Change of plans",
