@@ -115,9 +115,9 @@ export default function StoryPage() {
             <Photo src="/photos/place-setting-sm.jpg" alt="A chambray napkin in a brass ring" sizes="(min-width: 1080px) 25vw, 50vw" />
             <Photo
               src="/photos/patio-sm.jpg"
-              alt="The covered patio out front, with the blue airport bench"
+              alt="The covered patio out front, with the blue airport bench beside a planter of succulents"
               sizes="(min-width: 1080px) 25vw, 50vw"
-              position="40% 80%"
+              position="45% 50%"
             />
           </div>
         </div>

@@ -26,7 +26,7 @@ export const TEAM: Person[] = [
     name: 'Kim Sinclair',
     role: 'Co-owner',
     bio: 'Kim co-owns Kismet with Eric. She’s the restaurant’s sounding board, and some evenings she’s the one who greets you at the door.',
-    photo: { src: '/photos/kim.jpg', alt: 'Kim Sinclair in the front doorway of Kismet' },
+    photo: { src: '/photos/kim.jpg', alt: 'Kim Sinclair smiling beside the blue host stand at Kismet', position: '50% 25%' },
   },
   {
     name: 'Chris Townsend',
@@ -38,13 +38,13 @@ export const TEAM: Person[] = [
   {
     name: 'Dillon',
     role: 'Bar manager',
-    bio: 'Dillon runs the bar.',
+    bio: 'Dillon leads the bar, continually refining our spirits selection and creating thoughtful, distinctive cocktails. He loves the energy of service and is happiest when he’s on the move, keeping things flowing behind the bar and throughout the room.',
     photo: { src: '/photos/dillon.jpg', alt: 'Dillon, bar manager, smiling in front of the wine shelves at the bar', position: '50% 30%' },
   },
   {
     name: 'Lacey',
     role: 'Floor manager',
-    bio: 'Lacey runs the dining room.',
-    photo: { src: '/photos/lacey.jpg', alt: 'Lacey holding oysters on ice and a Dungeness crab cake', position: '50% 25%' },
+    bio: 'Lacey brings a great deal of heart to the day-to-day rhythm of Kismet, with a genuine care for our guests and the team. Born and raised in Vancouver, Washington, she carries her love of the Pacific Northwest into her time off, often found fishing, clamming, or kayaking.',
+    photo: { src: '/photos/lacey.jpg', alt: 'Lacey, floor manager, in a green apron in the Kismet dining room', position: '50% 25%' },
   },
 ]
