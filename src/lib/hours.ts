@@ -12,6 +12,8 @@ export const TIME_ZONE = 'America/Los_Angeles'
 
 export type DayHours = { open: boolean; firstTable: string; lastTable: string }
 export type Week = Record<DayKey, DayHours>
+/** A one-off evening with its own times and page, like New Year's Eve ("YYYY-MM-DD", "HH:MM"). */
+export type SpecialNight = { date: string; name: string; firstTable: string; lastTable: string; href: string }
 
 export function minutes(hhmm: string): number {
   const [h, m] = hhmm.split(':').map(Number)
@@ -177,20 +179,41 @@ function dayAt(now: LocalNow, offset: number) {
   return { iso: dt.toISOString().slice(0, 10), dow: dt.getUTCDay(), month: dt.getUTCMonth(), date: dt.getUTCDate() }
 }
 
-/** Hours for the night `offset` days from now, or null if we're closed that night (a closed weekday or a closed date). */
-function openNight(now: LocalNow, week: Week, closed: Set<string>, offset: number): DayHours | null {
+/** "YYYY-MM-DD" for the day `now` falls on in Vancouver. */
+export function isoDay(now: LocalNow): string {
+  return `${now.year}-${String(now.month).padStart(2, '0')}-${String(now.day).padStart(2, '0')}`
+}
+
+/** True when the date ("YYYY-MM-DD") falls on a weekday we're usually open. */
+export function usuallyOpen(iso: string, week: Week): boolean {
+  const [y, m, d] = iso.split('-').map(Number)
+  return week[DAY_KEYS[new Date(Date.UTC(y, m - 1, d)).getUTCDay()]].open
+}
+
+type Specials = Map<string, SpecialNight>
+const bySpecialDate = (nights: SpecialNight[] = []): Specials => new Map(nights.map((n) => [n.date, n]))
+
+/**
+ * Hours for the night `offset` days from now, or null if we're closed that night (a closed weekday or a closed date).
+ * A special night (New Year's Eve and the like) uses its own times, even on a day we'd usually be closed.
+ */
+function openNight(now: LocalNow, week: Week, closed: Set<string>, offset: number, specials: Specials = new Map()): DayHours | null {
   const d = dayAt(now, offset)
+  if (closed.has(d.iso)) return null
+  const special = specials.get(d.iso)
+  if (special) return { open: true, firstTable: special.firstTable, lastTable: special.lastTable }
   const day = week[DAY_KEYS[d.dow]]
-  return day.open && !closed.has(d.iso) ? day : null
+  return day.open ? day : null
 }
 
 /**
  * The open/closed line and the hero headline for this moment.
  * `closedDates` are one-off closures ("2026-11-26"); those nights count as closed.
  */
-export function service(now: LocalNow, week: Week, closedDates: string[] = []): Service {
+export function service(now: LocalNow, week: Week, closedDates: string[] = [], specialNights: SpecialNight[] = []): Service {
   const closed = new Set(closedDates)
-  const today = openNight(now, week, closed, 0)
+  const specials = bySpecialDate(specialNights)
+  const today = openNight(now, week, closed, 0, specials)
   let state: ServiceState = 'closed'
   if (today) {
     state = now.min < minutes(today.firstTable) ? 'before' : now.min < minutes(today.lastTable) ? 'open' : 'after'
@@ -214,7 +237,7 @@ export function service(now: LocalNow, week: Week, closedDates: string[] = []): 
   // No more seatings now: find the next open night, up to about two months out.
   let ahead = 0
   for (let i = 1; i <= 62; i++) {
-    if (openNight(now, week, closed, i)) {
+    if (openNight(now, week, closed, i, specials)) {
       ahead = i
       break
     }
@@ -231,7 +254,7 @@ export function service(now: LocalNow, week: Week, closedDates: string[] = []): 
       headline: after ? 'Seating is done for tonight.' : 'The lamps are off for now. We’ll be back soon.',
     }
   }
-  const next = openNight(now, week, closed, ahead)!
+  const next = openNight(now, week, closed, ahead, specials)!
   const d = dayAt(now, ahead)
   // "tomorrow", "Tuesday", or for a longer break "Tuesday, Oct 13"
   const whenShort = ahead === 1 ? 'tomorrow' : ahead < 7 ? LONG[d.dow] : `${LONG[d.dow]}, ${MONTHS[d.month]} ${d.date}`
@@ -246,21 +269,32 @@ export function service(now: LocalNow, week: Week, closedDates: string[] = []): 
   }
 }
 
-export type QuickDate = { label: string; sub: string; iso: string }
+/** `href` is set for a special night: its button goes to that evening's page rather than straight to Resy. */
+export type QuickDate = { label: string; sub: string; iso: string; href?: string }
 
 /** The next few nights we're open, starting tonight if the last seating hasn't passed yet. */
-export function quickDates(now: LocalNow, week: Week, count = 4, windowDays = 60, closedDates: string[] = []): QuickDate[] {
+export function quickDates(
+  now: LocalNow,
+  week: Week,
+  count = 4,
+  windowDays = 60,
+  closedDates: string[] = [],
+  specialNights: SpecialNight[] = [],
+): QuickDate[] {
   const closed = new Set(closedDates)
+  const specials = bySpecialDate(specialNights)
   const out: QuickDate[] = []
   for (let i = 0; i <= windowDays && out.length < count; i++) {
-    const day = openNight(now, week, closed, i)
+    const day = openNight(now, week, closed, i, specials)
     if (!day) continue
     if (i === 0 && now.min >= minutes(day.lastTable)) continue
     const d = dayAt(now, i)
+    const special = specials.get(d.iso)
     out.push({
       label: i === 0 ? 'Tonight' : i === 1 ? 'Tomorrow' : SHORT[d.dow],
       sub: `${MONTHS[d.month]} ${d.date}`,
       iso: d.iso,
+      ...(special?.href ? { href: special.href } : {}),
     })
   }
   return out

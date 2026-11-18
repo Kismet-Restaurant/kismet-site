@@ -1,8 +1,8 @@
 // /llms.txt: the whole site in one plain-text page for AI assistants (ChatGPT, Claude, Perplexity, Gemini and
 // others), in the llms.txt format (https://llmstxt.org). It's built from the content files at each deploy, so it
 // always matches the hours, menu and details on the site. Nothing here needs editing by hand.
-import { bookingNote, bottleCount, drinks, hours, longDate, menu, site, tel, type PricedItem } from '@/lib/content'
-import { clockFull, groupHours } from '@/lib/hours'
+import { bookingNote, bottleCount, drinks, hours, longDate, menu, newYearsEve as nye, site, tel, type PricedItem } from '@/lib/content'
+import { clockFull, groupHours, usuallyOpen } from '@/lib/hours'
 import { CHEF, TEAM } from '@/lib/people'
 
 export const dynamic = 'force-static'
@@ -18,7 +18,8 @@ export function GET() {
   const call = hours.booking.callFromPartySize
   const { longTableMax, roomSeats } = site.privateDining
   const today = new Date().toISOString().slice(0, 10)
-  const closures = hours.closedDates.filter((d) => d >= today)
+  const closures = hours.closedDates.filter((d) => d >= today && usuallyOpen(d, hours.week))
+  const nyeAhead = nye.hideAfter >= today
 
   const lines: string[] = [
     `# ${site.name}`,
@@ -49,6 +50,24 @@ export function GET() {
     ...(call > 1 ? [`- For ${call - 1} people or fewer, reserve on Resy. For ${call} people or more, call ${site.phone}.`] : []),
     `- ${site.runningLate}`,
     '',
+    ...(nyeAhead
+      ? [
+          `## ${nye.name}`,
+          '',
+          `${nye.title}, ${longDate(nye.date)}. ${nye.lede} $${nye.price} ${nye.priceNote}. ${nye.serviceNote}`,
+          '',
+          ...nye.seatings.map((s) => `- ${s.name}: arrive between ${clockFull(s.from)} and ${clockFull(s.until)}`),
+          `- ${nye.seatingNote}`,
+          ...nye.courses.map(
+            (c) =>
+              `- ${c.title}${c.choose ? ' (choose one)' : ''}: ${c.dishes.map((d) => `${d.name}${d.description ? ` (${d.description})` : ''}`).join(c.choose ? ' or ' : '; ')}`,
+          ),
+          `- ${nye.wine.title}: $${nye.wine.price} per guest. ${nye.wine.text}`,
+          ...nye.notes.map((n) => `- ${n.title}: ${n.text}`),
+          `- [${nye.name} page](${siteUrl}/new-years-eve) · [Reserve on Resy](${nye.reserveUrl})`,
+          '',
+        ]
+      : []),
     '## The menu',
     '',
     `Updated ${longDate(menu.updated)}. ${menu.intro} ${menu.dayOfNote}`,

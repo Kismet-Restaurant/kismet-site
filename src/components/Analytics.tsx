@@ -1,6 +1,7 @@
 'use client'
 // Google Analytics, on the live site only: preview links and local copies load nothing.
-// It also sends reserve_click when a guest taps a Reserve button (links marked data-resy) or a quick date.
+// It also sends reserve_click when a guest taps a Reserve button (links marked data-resy, or data-reserve for a
+// special evening's Resy link) or a quick date that goes to Resy.
 import { useEffect } from 'react'
 
 declare global {
@@ -30,7 +31,7 @@ export function Analytics({ id }: { id: string }) {
       document.head.appendChild(script)
     }
     const onClick = (e: MouseEvent) => {
-      const link = e.target instanceof Element ? e.target.closest('a[data-resy], a.date-chip') : null
+      const link = e.target instanceof Element ? e.target.closest('a[data-resy], a[data-reserve], a.date-chip[href^="http"]') : null
       // beacon, so the event still goes out when a quick date leaves the page for Resy
       if (link) window.gtag?.('event', 'reserve_click', { transport_type: 'beacon' })
     }

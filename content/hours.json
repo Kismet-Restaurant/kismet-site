@@ -1,7 +1,12 @@
 {
   "notice": {
-    "show": false,
-    "text": ""
+    "show": true,
+    "text": "New Year’s Eve, Thursday, December 31: five courses from Chef Eric, in two seatings.",
+    "link": {
+      "href": "/new-years-eve",
+      "text": "See the menu"
+    },
+    "until": "2026-12-31"
   },
   "week": {
     "monday": {
@@ -41,7 +46,39 @@
     }
   },
   "closingNote": "We stay open after the last seating, usually until 9:30 pm or 10 pm, or as long as guests linger.",
-  "closedDates": [],
+  "closedDates": [
+    "2026-11-26",
+    "2026-12-25",
+    "2026-12-26",
+    "2026-12-27",
+    "2026-12-28",
+    "2027-01-01",
+    "2027-01-02",
+    "2027-01-03",
+    "2027-01-04",
+    "2027-01-05",
+    "2027-01-06",
+    "2027-01-07",
+    "2027-07-04",
+    "2027-07-05",
+    "2027-07-06",
+    "2027-07-07",
+    "2027-07-08",
+    "2027-07-09",
+    "2027-07-10",
+    "2027-07-11",
+    "2027-07-12",
+    "2027-07-13"
+  ],
+  "specialNights": [
+    {
+      "date": "2026-12-31",
+      "name": "New Year’s Eve",
+      "firstTable": "16:30",
+      "lastTable": "20:00",
+      "href": "/new-years-eve"
+    }
+  ],
   "booking": {
     "windowDays": 60,
     "depositFromPartySize": 5,

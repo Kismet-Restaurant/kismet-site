@@ -2688,3 +2688,123 @@ select.input {
     padding-bottom: 0;
   }
 }
+
+/* ---------------------------------------------------------------- special evenings (New Year's Eve) */
+.notice__link {
+  color: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  white-space: nowrap;
+}
+.notice__link:hover {
+  color: var(--brass);
+}
+/* the home page band under the hero */
+.nye-band {
+  padding: clamp(36px, 5vw, 64px) var(--gutter);
+  border-top: 1px solid var(--esp-rule);
+}
+.nye-band .body {
+  max-width: 620px;
+}
+/* the price in the hero: "$135" with the note beside or under it */
+.nye-price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 12px;
+  padding: 16px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.nye-price__amount {
+  font-family: var(--serif);
+  font-size: clamp(36px, 30px + 1.4vw, 52px);
+  line-height: 1;
+  font-weight: 360;
+  color: var(--ink);
+}
+.nye-price__note {
+  font-size: 16px;
+  line-height: 1.45;
+  font-style: italic;
+  color: var(--muted);
+  flex: 1 1 220px;
+  min-width: 0;
+}
+.nye-seating-note {
+  max-width: 720px;
+}
+.nye-menu__wrap {
+  display: grid;
+  gap: 40px;
+}
+.nye-menu__head .body {
+  max-width: 640px;
+}
+.nye-menu__courses {
+  display: grid;
+  gap: 28px;
+}
+.nye-course .course-head {
+  padding-bottom: 10px;
+}
+.nye-course .course-head h3 {
+  font-size: clamp(24px, 22px + 0.6vw, 30px);
+  line-height: 1.15;
+  font-weight: 400;
+}
+.nye-course .dishes li:last-child {
+  border-bottom: 0;
+}
+.nye-wine {
+  display: block;
+  padding-top: 14px;
+}
+.nye-menu__photo {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.nye-menu__frame {
+  height: 300px;
+}
+@media (min-width: 720px) {
+  .nye-menu__courses {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 56px;
+    row-gap: 36px;
+  }
+  .nye-menu__frame {
+    height: 420px;
+  }
+}
+@media (min-width: 1080px) {
+  .nye-menu__wrap {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    column-gap: 80px;
+    row-gap: 48px;
+    align-items: start;
+  }
+  .nye-menu__head {
+    grid-column: 1 / -1;
+  }
+  .nye-menu__courses {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 32px;
+  }
+  .nye-menu__photo {
+    position: sticky;
+    top: 32px;
+  }
+  .nye-menu__frame {
+    height: 560px;
+  }
+}
+@media (min-width: 720px) and (max-width: 1079.98px) {
+  .nye-notes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

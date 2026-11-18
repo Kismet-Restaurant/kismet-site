@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next'
-import { menu } from '@/lib/content'
+import { menu, newYearsEve } from '@/lib/content'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.kismetvancouver.com'
 const photo = (p: string) => `${siteUrl}${p}`
@@ -41,6 +41,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
       images: [photo('/photos/eric-portrait.jpg'), photo('/photos/patio.jpg')],
     },
+    // A special evening's page, while it's still ahead
+    ...(newYearsEve.hideAfter >= new Date().toISOString().slice(0, 10)
+      ? [
+          {
+            url: `${siteUrl}/new-years-eve`,
+            changeFrequency: 'weekly' as const,
+            priority: 0.8,
+            images: [photo('/photos/dining-room-evening.jpg'), photo(newYearsEve.photo.image)],
+          },
+        ]
+      : []),
     { url: `${siteUrl}/privacy`, changeFrequency: 'yearly', priority: 0.2 },
   ]
 }
