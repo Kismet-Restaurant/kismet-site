@@ -85,9 +85,11 @@ export type SpecialEvening = {
   lede: string
   price: number
   priceNote: string
-  /** Percent; Washington law asks that any menu showing a service charge says how much goes to staff (serviceNote) */
-  serviceCharge: number
-  serviceNote: string
+  /**
+   * What's paid on the night, like "Wine, other drinks and gratuity are paid at the table."
+   * If an evening ever adds a service charge, Washington law asks that any menu showing it says how much goes to staff.
+   */
+  tableNote: string
   reserveUrl: string
   /** Times guests can arrive, "HH:MM" */
   seatings: { name: string; from: string; until: string }[]

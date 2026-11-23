@@ -117,7 +117,7 @@ export default function NewYearsEvePage() {
               Five courses.
             </h2>
             <p className="body">
-              ${ev.price} {ev.priceNote}. {ev.serviceNote}
+              ${ev.price} {ev.priceNote}. {ev.tableNote}
             </p>
           </div>
           <div className="nye-menu__courses">
