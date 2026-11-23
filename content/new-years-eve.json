@@ -5,48 +5,76 @@
   "eyebrow": "New Year’s Eve · Thursday, December 31",
   "title": "New Year’s Eve at Kismet",
   "metaTitle": "New Year’s Eve dinner",
-  "metaDescription": "New Year’s Eve at Kismet on Main Street in Vancouver, Washington: five courses from Chef Eric on Thursday, December 31, in two seatings. $135 per guest, plus a 20% service charge and sales tax, paid when you book.",
+  "metaDescription": "New Year’s Eve at Kismet on Main Street in Vancouver, Washington: five courses from Chef Eric on Thursday, December 31, in two seatings. $135 per guest plus tax, paid when you book.",
   "lede": "Five courses from Chef Eric for the last night of the year, served in two seatings.",
   "price": 135,
-  "priceNote": "per guest, plus a 20% service charge and sales tax, paid when you book",
-  "serviceCharge": 20,
-  "serviceNote": "The full service charge goes to the team serving you, and no further tip is expected.",
+  "priceNote": "per guest, plus tax, paid when you book",
+  "tableNote": "Wine, other drinks and gratuity are paid at the table.",
   "reserveUrl": "https://resy.com/cities/portland-or/venues/kismet-wa?date=2026-12-31&seats=2",
   "seatings": [
-    { "name": "First seating", "from": "16:30", "until": "17:30" },
-    { "name": "Second seating", "from": "19:00", "until": "20:00" }
+    {
+      "name": "First seating",
+      "from": "16:30",
+      "until": "17:30"
+    },
+    {
+      "name": "Second seating",
+      "from": "19:00",
+      "until": "20:00"
+    }
   ],
   "seatingNote": "Dinner takes about two hours, and we hold each table for two hours.",
   "courses": [
     {
       "title": "First course",
-      "dishes": [{ "name": "Lobster bisque", "description": "Bas-Armagnac and sweet cream" }]
+      "dishes": [
+        {
+          "name": "Lobster bisque",
+          "description": "Bas-Armagnac and sweet cream"
+        }
+      ]
     },
     {
       "title": "Second course",
-      "dishes": [{ "name": "Roasted beet salad", "description": "Red and golden beets, pickled fennel, pepitas and orange vinaigrette" }]
+      "dishes": [
+        {
+          "name": "Roasted beet salad",
+          "description": "Red and golden beets, pickled fennel, pepitas and orange vinaigrette"
+        }
+      ]
     },
     {
       "title": "Third course",
-      "dishes": [{ "name": "Grilled Pacific salmon", "description": "Béarnaise, rice pilaf with winter vegetables" }]
+      "dishes": [
+        {
+          "name": "Grilled Pacific salmon",
+          "description": "Béarnaise, rice pilaf with winter vegetables"
+        }
+      ]
     },
     {
       "title": "Fourth course",
-      "dishes": [{ "name": "Tenderloin of beef", "description": "Wild mushroom demi-glace and potato purée" }]
+      "dishes": [
+        {
+          "name": "Tenderloin of beef",
+          "description": "Wild mushroom demi-glace and potato purée"
+        }
+      ]
     },
     {
       "title": "Fifth course",
-      "choose": true,
       "dishes": [
-        { "name": "Apple galette", "description": "" },
-        { "name": "Chocolate mousse tart", "description": "" }
+        {
+          "name": "Apple galette and chocolate mousse tart",
+          "description": "Served side by side"
+        }
       ]
     }
   ],
   "wine": {
     "title": "Wine pairing",
     "price": 55,
-    "text": "Five wines, 4 oz pours, ordered and paid at the table. The wines will be announced closer to the night."
+    "text": "Five wines, 4 oz pours, paid at the table. The wines will be announced closer to the night."
   },
   "photo": {
     "image": "/photos/tenderloin.jpg",
@@ -56,7 +84,7 @@
   "notes": [
     {
       "title": "Paying",
-      "text": "$135 per guest, plus a 20% service charge and sales tax, is paid when you book. The full service charge goes to the team serving you, and no further tip is expected. Wine and other drinks are paid at the table."
+      "text": "$135 per guest, plus tax, is paid when you book. Wine, other drinks and gratuity are paid at the table."
     },
     {
       "title": "Change of plans",
@@ -64,7 +92,7 @@
     },
     {
       "title": "Allergies and dietary needs",
-      "text": "The menu is set, with a choice at dessert. Tell us when you book, and please call ahead about serious allergies. Some changes are possible and some aren’t; we can’t create separate dishes or custom menus."
+      "text": "The menu is set, one dish for each course. Tell us when you book, and please call ahead about serious allergies. Some changes are possible and some aren’t; we can’t create separate dishes or custom menus."
     },
     {
       "title": "Over the holidays",
@@ -73,7 +101,7 @@
   ],
   "home": {
     "title": "Five courses for the last night of the year.",
-    "text": "Two seatings, from 4:30 pm and from 7 pm. $135 per guest, plus a 20% service charge and sales tax, paid when you book.",
+    "text": "Two seatings, from 4:30 pm and from 7 pm. $135 per guest plus tax, paid when you book.",
     "button": "See the menu and book"
   }
 }

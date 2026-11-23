@@ -189,7 +189,7 @@ export function eventJsonLd(siteUrl: string, ev: SpecialEvening, path: string) {
       '@type': 'FoodEvent',
       '@id': `${url}#event`,
       name: ev.title,
-      description: `${ev.lede} $${ev.price} ${ev.priceNote}. ${ev.serviceNote}`,
+      description: `${ev.lede} $${ev.price} ${ev.priceNote}. ${ev.tableNote}`,
       url,
       image: [`${siteUrl}/photos/dining-room-evening.jpg`, `${siteUrl}${ev.photo.image}`],
       startDate: `${ev.date}T${first.from}:00${offset}`,

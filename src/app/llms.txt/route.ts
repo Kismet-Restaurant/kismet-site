@@ -54,7 +54,7 @@ export function GET() {
       ? [
           `## ${nye.name}`,
           '',
-          `${nye.title}, ${longDate(nye.date)}. ${nye.lede} $${nye.price} ${nye.priceNote}. ${nye.serviceNote}`,
+          `${nye.title}, ${longDate(nye.date)}. ${nye.lede} $${nye.price} ${nye.priceNote}. ${nye.tableNote}`,
           '',
           ...nye.seatings.map((s) => `- ${s.name}: arrive between ${clockFull(s.from)} and ${clockFull(s.until)}`),
           `- ${nye.seatingNote}`,
